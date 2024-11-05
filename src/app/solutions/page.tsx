@@ -106,7 +106,7 @@ export default function SolutionsPage() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Ready to Take Action?</h2>
                 <p className="max-w-[600px] text-gray-700 md:text-xl mx-auto">
-                  Let's work together to reduce your carbon footprint and build a sustainable future. Contact us today to learn more about our solutions.
+                  Let&apos;s work together to reduce your carbon footprint and build a sustainable future. Contact us today to learn more about our solutions.
                 </p>
               </div>
               <div className="w-full max-w-sm space-y-2">
