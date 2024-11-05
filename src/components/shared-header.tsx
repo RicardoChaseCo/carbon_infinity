@@ -13,6 +13,7 @@ import {
 
 export function SharedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-white/70 backdrop-blur-md border-b border-gray-200/20 z-50">
@@ -67,13 +68,49 @@ export function SharedHeader() {
       {mobileMenuOpen && (
         <div className="absolute top-14 left-0 right-0 bg-white border-b border-gray-200 shadow-lg md:hidden">
           <nav className="flex flex-col p-4">
-            <Link 
-              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-              href="/solutions"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Solutions
-            </Link>
+            <div>
+              <button
+                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
+                onClick={() => setSolutionsOpen(!solutionsOpen)}
+              >
+                Solutions
+                <svg
+                  className={`w-4 h-4 transition-transform ${solutionsOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {solutionsOpen && (
+                <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
+                  <Link 
+                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                    href="/solutions"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Solutions
+                  </Link>
+                  <Link 
+                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                    href="/solutions/carbon-consulting"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Carbon Consulting
+                  </Link>
+                  <Link 
+                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                    href="/solutions/showcase"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Showcase
+                  </Link>
+                </div>
+              )}
+            </div>
+            
             <Link 
               className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
               href="/apis"
