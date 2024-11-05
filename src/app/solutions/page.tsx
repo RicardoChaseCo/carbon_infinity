@@ -17,7 +17,7 @@ export default function SolutionsPage() {
                   Comprehensive Carbon Management Solutions
                 </h1>
                 <p className="max-w-[600px] text-gray-700 md:text-xl mx-auto">
-                  Discover how CarbonSoft can help your organization achieve its sustainability goals with our range of innovative solutions.
+                  Discover how Carbon Infinity can help your organization achieve its sustainability goals with our range of innovative solutions.
                 </p>
               </div>
               <div className="w-full max-w-sm space-y-2">
@@ -119,7 +119,7 @@ export default function SolutionsPage() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-700">© 2024 CarbonSoft. All rights reserved.</p>
+        <p className="text-xs text-gray-700">© 2024 Carbon Infinity. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link className="text-xs hover:underline underline-offset-4" href="#">
             Terms of Service
