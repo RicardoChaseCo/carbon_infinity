@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { CardContent, Card } from "@/components/ui/card"
-import { Leaf, BarChart, Globe, Users, ArrowRight } from "lucide-react"
+import { BarChart, Globe, Users, ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -120,8 +120,7 @@ export function CarbonSoftwareLandingComponent() {
                       width="80"
                     />
                     <blockquote className="text-lg font-semibold">
-                      "Carbon Infinity has transformed our approach to sustainability. We've reduced our carbon footprint by 30% in
-                      just one year."
+                      &quot;Carbon Infinity has transformed our approach to sustainability. We&apos;ve reduced our carbon footprint by 30% in just one year.&quot;
                     </blockquote>
                     <p className="text-sm text-gray-500">- Jane Doe, CEO of GreenTech Industries</p>
                   </CardContent>
