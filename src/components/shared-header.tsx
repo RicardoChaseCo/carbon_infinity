@@ -62,6 +62,49 @@ export function SharedHeader() {
           <span className="sr-only">Toggle menu</span>
         </Button>
       </div>
+      
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="absolute top-14 left-0 right-0 bg-white border-b border-gray-200 shadow-lg md:hidden">
+          <nav className="flex flex-col p-4">
+            <Link 
+              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+              href="/solutions"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Solutions
+            </Link>
+            <Link 
+              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+              href="/apis"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              APIs
+            </Link>
+            <Link 
+              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+              href="/online-database"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Database
+            </Link>
+            <Link 
+              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+              href="/data-dashboard"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Dashboard
+            </Link>
+            <Link 
+              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+              href="/resources"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Resources
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   )
 } 
