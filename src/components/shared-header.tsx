@@ -14,6 +14,9 @@ import {
 export function SharedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [developersOpen, setDevelopersOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-white/70 backdrop-blur-md border-b border-gray-200/20 z-50">
@@ -25,12 +28,34 @@ export function SharedHeader() {
         <nav className="hidden md:flex gap-4 sm:gap-6">
           <DropdownMenu>
             <DropdownMenuTrigger className="text-sm font-medium hover:text-green-600 transition-colors">
+              Products
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <Link href="/products" className="w-full">
+                  Overview
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/products/data-dashboard" className="w-full">
+                  Data Dashboard
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/products/online-database" className="w-full">
+                  Online Database
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-sm font-medium hover:text-green-600 transition-colors">
               Solutions
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>
                 <Link href="/solutions" className="w-full">
-                  Solutions
+                  Overview
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
@@ -45,18 +70,60 @@ export function SharedHeader() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link className="text-sm font-medium hover:text-green-600 transition-colors" href="/apis">
-            APIs
-          </Link>
-          <Link className="text-sm font-medium hover:text-green-600 transition-colors" href="/online-database">
-            Database
-          </Link>
-          <Link className="text-sm font-medium hover:text-green-600 transition-colors" href="/data-dashboard">
-            Dashboard
-          </Link>
-          <Link className="text-sm font-medium hover:text-green-600 transition-colors" href="/resources">
-            Resources
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-sm font-medium hover:text-green-600 transition-colors">
+              Developers
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <Link href="/developers" className="w-full">
+                  Overview
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/developers/docs" className="w-full">
+                  Documentation
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/developers/developer" className="w-full">
+                  Developer Portal
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-sm font-medium hover:text-green-600 transition-colors">
+              Resources
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <Link href="/resources/about" className="w-full">
+                  About Us
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/resources/vision" className="w-full">
+                  Our Vision
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/resources/team" className="w-full">
+                  Team
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/resources/blogs" className="w-full">
+                  Blog
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/resources/faqs" className="w-full">
+                  FAQs
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
         <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           <Menu className="h-6 w-6" />
@@ -68,6 +135,49 @@ export function SharedHeader() {
       {mobileMenuOpen && (
         <div className="absolute top-14 left-0 right-0 bg-white border-b border-gray-200 shadow-lg md:hidden">
           <nav className="flex flex-col p-4">
+            <div>
+              <button
+                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
+                onClick={() => setProductsOpen(!productsOpen)}
+              >
+                Products
+                <svg
+                  className={`w-4 h-4 transition-transform ${productsOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {productsOpen && (
+                <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
+                  <Link 
+                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                    href="/products"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Overview
+                  </Link>
+                  <Link 
+                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                    href="/products/data-dashboard"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Data Dashboard
+                  </Link>
+                  <Link 
+                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                    href="/products/online-database"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Online Database
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <div>
               <button
                 className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
@@ -91,7 +201,7 @@ export function SharedHeader() {
                     href="/solutions"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Solutions
+                    Overview
                   </Link>
                   <Link 
                     className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
@@ -110,38 +220,107 @@ export function SharedHeader() {
                 </div>
               )}
             </div>
-            
-            <Link 
-              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-              href="/apis"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              APIs
-            </Link>
-            <Link 
-              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-              href="/online-database"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Database
-            </Link>
-            <Link 
-              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-              href="/data-dashboard"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Dashboard
-            </Link>
-            <Link 
-              className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-              href="/resources"
-              onClick={() => setMobileMenuOpen(false)}
+
+            <div>
+              <button
+                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
+                onClick={() => setDevelopersOpen(!developersOpen)}
+              >
+                Developers
+                <svg
+                  className={`w-4 h-4 transition-transform ${developersOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {developersOpen && (
+                <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
+                  <Link 
+                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                    href="/developers"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Overview
+                  </Link>
+                  <Link 
+                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                    href="/developers/docs"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Documentation
+                  </Link>
+                  <Link 
+                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                    href="/developers/developer"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Developer Portal
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <button
+              className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
+              onClick={() => setResourcesOpen(!resourcesOpen)}
             >
               Resources
-            </Link>
+              <svg
+                className={`w-4 h-4 transition-transform ${resourcesOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            {resourcesOpen && (
+              <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
+                <Link 
+                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                  href="/resources/about"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About Us
+                </Link>
+                <Link 
+                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                  href="/resources/vision"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Our Vision
+                </Link>
+                <Link 
+                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                  href="/resources/team"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Team
+                </Link>
+                <Link 
+                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                  href="/resources/blogs"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Blog
+                </Link>
+                <Link 
+                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
+                  href="/resources/faqs"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  FAQs
+                </Link>
+              </div>
+            )}
           </nav>
         </div>
       )}
     </header>
   )
-} 
+}
