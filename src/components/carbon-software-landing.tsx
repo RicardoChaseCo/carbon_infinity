@@ -3,10 +3,11 @@
 import { Button } from "@/components/ui/button"
 import { CardContent, Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ChevronDown, BarChart, Globe, Zap, ArrowRight, Check, LineChart, PieChart, Users } from "lucide-react"
+import { BarChart, Globe, Zap, ArrowRight, Check, LineChart, PieChart, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import CarbonDataFlowLanding from "@/components/carbon-data-flow-landing"
 
 export function CarbonSoftwareLandingComponent() {
   const [spotlightPosition, setSpotlightPosition] = useState({ x: 0, y: 0 })
@@ -84,18 +85,13 @@ export function CarbonSoftwareLandingComponent() {
             </div>
           </div>
 
-          {/* Animated scroll indicator */}
-          <div className="fixed left-1/2 bottom-8 -translate-x-1/2 w-8 mx-auto z-50 animate-bounce">
-            <ChevronDown className="w-10 h-8 text-gray-400" />
-          </div>
-
           {/* Decorative Elements */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
         </section>
 
         {/* Key Features Section */}
-        <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gray-50">
+        <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-[1920px] mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-16 animate-fade-in-up">Comprehensive Carbon Management</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -118,6 +114,9 @@ export function CarbonSoftwareLandingComponent() {
             </div>
           </div>
         </section>
+
+        {/* Add Carbon Data Flow Section here */}
+        <CarbonDataFlowLanding />
 
         {/* How It Works Section */}
         <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gray-50">
