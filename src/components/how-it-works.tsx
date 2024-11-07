@@ -91,7 +91,7 @@ export default function HowItWorksComponent() {
         })}
       </div>
       <div className="mt-12 flex justify-center gap-2">
-        {steps.map((_, index) => (
+        {steps.map((step, index) => (
           <button
             key={index}
             className={`
