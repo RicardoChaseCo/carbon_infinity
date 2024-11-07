@@ -58,7 +58,7 @@ export function DocsPage() {
       items.filter(item => 
         item.toLowerCase().includes(searchQuery.toLowerCase())
       )
-    ]).filter(([_, items]) => items.length > 0)
+    ]).filter(([section, items]) => items.length > 0)
   )
 
   return (
