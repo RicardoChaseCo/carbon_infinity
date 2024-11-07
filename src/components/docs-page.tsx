@@ -6,10 +6,14 @@ import { useState } from "react"
 import { Search } from 'lucide-react'
 
 export function DocsPage() {
+  type MenuItems = {
+    [section: string]: string[]
+  }
+
   const [activeItem, setActiveItem] = useState("Introduction")
   const [searchQuery, setSearchQuery] = useState("")
 
-  const menuItems = {
+  const menuItems: MenuItems = {
     "Getting Started": ["Introduction", "Installation", "Quick Start Guide", "API Keys"],
     "Core Concepts": ["Carbon Footprint", "Emission Factors", "Data Sources", "Calculation Methods", "Reporting Standards"],
     "API Reference": ["Authentication", "Endpoints", "Rate Limits", "Error Handling", "Webhooks"],
@@ -54,7 +58,7 @@ export function DocsPage() {
     ),
   }
 
-  const filteredMenuItems = Object.fromEntries(
+  const filteredMenuItems: MenuItems = Object.fromEntries(
     Object.entries(menuItems).map(([section, items]) => [
       section,
       items.filter(item => 
