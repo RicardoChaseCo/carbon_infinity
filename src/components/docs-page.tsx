@@ -5,12 +5,14 @@
 import { useState } from "react"
 import { Search } from 'lucide-react'
 
-export function DocsPage() {
-  type MenuItems = {
-    [section: string]: string[]
-  }
+type MenuItems = {
+  [section: string]: string[]
+}
 
-  const [activeItem, setActiveItem] = useState("Introduction")
+type ContentKey = "Introduction" | "Installation"
+
+export function DocsPage() {
+  const [activeItem, setActiveItem] = useState<ContentKey>("Introduction")
   const [searchQuery, setSearchQuery] = useState("")
 
   const menuItems: MenuItems = {
@@ -20,7 +22,7 @@ export function DocsPage() {
     "Advanced Topics": ["Custom Integrations", "Bulk Data Processing", "Machine Learning Models", "Real-time Monitoring"],
   }
 
-  const content = {
+  const content: Record<ContentKey, JSX.Element> = {
     "Introduction": (
       <div>
         <h1 className="text-4xl font-bold mb-6 text-green-800">Introduction to Carbon Data API</h1>
@@ -87,9 +89,9 @@ export function DocsPage() {
               {items.map((item) => (
                 <button
                   key={item}
-                  onClick={() => setActiveItem(item)}
+                  onClick={() => setActiveItem(item as ContentKey)}
                   className={`block w-full text-left px-2 py-1 rounded text-sm ${
-                    activeItem === item ? "bg-green-100 text-green-800 font-medium" : "text-gray-600 hover:bg-green-50"
+                    activeItem === item as ContentKey ? "bg-green-100 text-green-800 font-medium" : "text-gray-600 hover:bg-green-50"
                   }`}
                 >
                   {item}
