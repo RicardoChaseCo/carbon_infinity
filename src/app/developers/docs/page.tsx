@@ -3,13 +3,12 @@
 import { useState } from "react"
 import { Search } from 'lucide-react'
 
-// Add type for content keys
 type ContentKey = "Introduction" | "Installation"
 
 export default function DocsPage() {
-  // Update state to use the type
   const [activeItem, setActiveItem] = useState<ContentKey>("Introduction")
   const [searchQuery, setSearchQuery] = useState("")
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const menuItems = {
     "Getting Started": ["Introduction", "Installation", "Quick Start Guide", "API Keys"],
@@ -18,7 +17,6 @@ export default function DocsPage() {
     "Advanced Topics": ["Custom Integrations", "Bulk Data Processing", "Machine Learning Models", "Real-time Monitoring"],
   }
 
-  // Add type annotation to content object
   const content: Record<ContentKey, JSX.Element> = {
     "Introduction": (
       <div>
@@ -67,8 +65,14 @@ export default function DocsPage() {
   )
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-green-50 to-purple-100 pt-14">
-      <aside className="w-64 bg-white p-4 border-r border-green-200 overflow-y-auto">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-br from-green-50 to-purple-100 pt-14">
+      <button
+        className="md:hidden p-4 text-white bg-green-600 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105"
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+      >
+        {isSidebarOpen ? 'Close Menu' : 'Open Menu'}
+      </button>
+      <aside className={`w-full md:w-64 bg-white p-4 border-r border-green-200 overflow-y-auto ${isSidebarOpen ? 'block' : 'hidden'} md:block`}>
         <div className="mb-4 relative">
           <input
             type="text"
