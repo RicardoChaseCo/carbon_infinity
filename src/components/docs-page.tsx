@@ -1,5 +1,7 @@
 'use client'
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { useState } from "react"
 import { Search } from 'lucide-react'
 
@@ -58,7 +60,7 @@ export function DocsPage() {
       items.filter(item => 
         item.toLowerCase().includes(searchQuery.toLowerCase())
       )
-    ]).filter(([section, items]) => items.length > 0)
+    ]).filter(([, items]) => items.length > 0)
   )
 
   return (
