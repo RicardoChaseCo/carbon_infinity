@@ -8,6 +8,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import CarbonDataFlowLanding from "@/components/carbon-data-flow-landing"
+import HowItWorksComponent from "@/components/how-it-works"
 
 export function CarbonSoftwareLandingComponent() {
   const [spotlightPosition, setSpotlightPosition] = useState({ x: 0, y: 0 })
@@ -120,37 +121,8 @@ export function CarbonSoftwareLandingComponent() {
 
         {/* How It Works Section */}
         <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gray-50">
-          <div className="max-w-[1920px] mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16 animate-fade-in-up">How Carbon Infinity Works</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { title: "Data Collection", description: "Integrate with your existing systems or use our IoT sensors to collect emissions data." },
-                { title: "Analysis", description: "Our AI algorithms process and analyze your data to provide actionable insights." },
-                { title: "Strategize", description: "Develop data-driven strategies to reduce emissions and improve efficiency." },
-                { title: "Implement & Monitor", description: "Put your plans into action and track progress in real-time." }
-              ].map((step, index) => (
-                <div key={index} className="flex flex-col items-center text-center animate-fade-in-up relative" style={{ animationDelay: `${index * 200}ms` }}>
-                  {/* Spotlight background for the entire card */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-50/30 to-transparent rounded-lg" />
-                  
-                  <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4 relative z-10">
-                    <span className="text-2xl font-bold text-green-600">{index + 1}</span>
-                  </div>
-                  
-                  {/* Title with spotlight effect */}
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <h3 className="text-xl font-semibold mb-2 relative z-10">{step.title}</h3>
-                  </div>
-                  
-                  {/* Description with spotlight effect */}
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <p className="text-gray-600 relative z-10">{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="max-w-[1920px] mx-auto">
+            <HowItWorksComponent />
           </div>
         </section>
 

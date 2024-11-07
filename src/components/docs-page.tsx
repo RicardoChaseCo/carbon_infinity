@@ -3,12 +3,8 @@
 import { useState } from "react"
 import { Search } from 'lucide-react'
 
-// Add type for content keys
-type ContentKey = "Introduction" | "Installation"
-
-export default function DocsPage() {
-  // Update state to use the type
-  const [activeItem, setActiveItem] = useState<ContentKey>("Introduction")
+export function DocsPage() {
+  const [activeItem, setActiveItem] = useState("Introduction")
   const [searchQuery, setSearchQuery] = useState("")
 
   const menuItems = {
@@ -18,8 +14,7 @@ export default function DocsPage() {
     "Advanced Topics": ["Custom Integrations", "Bulk Data Processing", "Machine Learning Models", "Real-time Monitoring"],
   }
 
-  // Add type annotation to content object
-  const content: Record<ContentKey, JSX.Element> = {
+  const content = {
     "Introduction": (
       <div>
         <h1 className="text-4xl font-bold mb-6 text-green-800">Introduction to Carbon Data API</h1>
@@ -63,11 +58,11 @@ export default function DocsPage() {
       items.filter(item => 
         item.toLowerCase().includes(searchQuery.toLowerCase())
       )
-    ]).filter(([,items]) => items.length > 0)
+    ]).filter(([_, items]) => items.length > 0)
   )
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-green-50 to-purple-100 pt-14">
+    <div className="flex min-h-screen bg-gradient-to-br from-green-50 to-green-100">
       <aside className="w-64 bg-white p-4 border-r border-green-200 overflow-y-auto">
         <div className="mb-4 relative">
           <input
@@ -83,10 +78,10 @@ export default function DocsPage() {
           <div key={section} className="mb-4">
             <h4 className="font-semibold mb-2 text-green-800">{section}</h4>
             <div>
-              {(items as string[]).map((item: string) => (
+              {items.map((item) => (
                 <button
                   key={item}
-                  onClick={() => setActiveItem(item as ContentKey)}
+                  onClick={() => setActiveItem(item)}
                   className={`block w-full text-left px-2 py-1 rounded text-sm ${
                     activeItem === item ? "bg-green-100 text-green-800 font-medium" : "text-gray-600 hover:bg-green-50"
                   }`}
