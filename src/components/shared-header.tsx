@@ -10,6 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SharedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,13 +20,13 @@ export function SharedHeader() {
   const [developersOpen, setDevelopersOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-white/70 backdrop-blur-md border-b border-gray-200/20 z-50">
-      <div className="w-full max-w-[1920px] mx-auto px-4 lg:px-6 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background/70 backdrop-blur-md border-b border-border z-50">
+      <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16 grid grid-cols-[auto,1fr,auto] items-center">
         <Link className="flex items-center justify-center" href="/">
           <Leaf className="h-6 w-6 text-green-600" />
-          <span className="ml-2 text-2xl font-bold text-gray-900">Carbon Infinity</span>
+          <span className="ml-2 text-2xl font-bold text-foreground">Carbon Infinity</span>
         </Link>
-        <nav className="hidden md:flex gap-4 sm:gap-6">
+        <nav className="hidden md:flex gap-4 sm:gap-6 justify-center">
           <DropdownMenu>
             <DropdownMenuTrigger className="text-sm font-medium hover:text-green-600 transition-colors">
               Products
@@ -125,16 +126,33 @@ export function SharedHeader() {
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
-        <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          <Menu className="h-6 w-6" />
-          <span className="sr-only">Toggle menu</span>
-        </Button>
+        <div className="flex items-center gap-2 justify-end">
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/signin">Sign In</Link>
+          </Button>
+          <Button size="sm" className="bg-green-600 text-white hover:bg-green-700" asChild>
+            <Link href="/signup">Sign Up</Link>
+          </Button>
+          <ThemeToggle />
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Toggle menu</span>
+          </Button>
+        </div>
       </div>
       
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-14 left-0 right-0 bg-white border-b border-gray-200 shadow-lg md:hidden">
+        <div className="absolute top-14 left-0 right-0 bg-background border-b border-border shadow-lg md:hidden">
           <nav className="flex flex-col p-4">
+            <div className="flex flex-col gap-2 p-4 border-b border-border">
+              <Button variant="ghost" size="sm" asChild className="justify-center">
+                <Link href="/signin">Sign In</Link>
+              </Button>
+              <Button size="sm" className="bg-green-600 text-white hover:bg-green-700 justify-center" asChild>
+                <Link href="/signup">Sign Up</Link>
+              </Button>
+            </div>
             <div>
               <button
                 className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
