@@ -8,6 +8,16 @@ import { Button } from "@/components/ui/button"
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
 
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const handleChange = () => {
+      setTheme(mediaQuery.matches ? 'dark' : 'light')
+    }
+    
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [setTheme])
+
   return (
     <Button
       variant="ghost"
