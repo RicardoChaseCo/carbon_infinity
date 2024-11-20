@@ -132,7 +132,7 @@ export default function Component() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-gray-50 dark:bg-gray-900 relative">
+    <section className="pt-0 pb-24 px-4 bg-gray-50 dark:bg-gray-900 relative">
       <WaveBackground />
       <div className="max-w-7xl mx-auto relative">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

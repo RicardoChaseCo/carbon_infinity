@@ -21,10 +21,10 @@ export function SharedHeader() {
 
   return (
     <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background/70 backdrop-blur-md border-b border-border z-50">
-      <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16 grid grid-cols-[auto,1fr,auto] items-center">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 grid grid-cols-[auto,1fr,auto] items-center gap-4">
         <Link className="flex items-center justify-center" href="/">
-          <Leaf className="h-6 w-6 text-green-600" />
-          <span className="ml-2 text-2xl font-bold text-foreground">Carbon Infinity</span>
+          <Leaf className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
+          <span className="ml-2 text-lg sm:text-2xl font-bold text-foreground">Carbon Infinity</span>
         </Link>
         <nav className="hidden md:flex gap-4 sm:gap-6 justify-center">
           <DropdownMenu>
@@ -127,12 +127,14 @@ export function SharedHeader() {
           </DropdownMenu>
         </nav>
         <div className="flex items-center gap-2 justify-end">
-          <Button variant="ghost" size="sm" asChild>
-            <Link href="/signin">Sign In</Link>
-          </Button>
-          <Button size="sm" className="bg-green-600 text-white hover:bg-green-700" asChild>
-            <Link href="/signup">Sign Up</Link>
-          </Button>
+          <div className="hidden md:flex items-center gap-2">
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/signin">Sign In</Link>
+            </Button>
+            <Button size="sm" className="bg-green-600 text-white hover:bg-green-700" asChild>
+              <Link href="/signup">Sign Up</Link>
+            </Button>
+          </div>
           <ThemeToggle />
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             <Menu className="h-6 w-6" />
