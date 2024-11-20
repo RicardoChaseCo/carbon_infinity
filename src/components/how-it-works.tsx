@@ -1,16 +1,24 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from "react"
-import { Database, Brain, Lightbulb, LineChart } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { useEffect } from "react"
+import { motion, useAnimation } from "framer-motion"
+import { Database, Brain, Lightbulb, LineChart } from 'lucide-react'
+import { Card } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 
 export default function HowItWorksComponent() {
-  const [activeStep, setActiveStep] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
+  const controls = useAnimation()
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    const startAnimation = async () => {
+      await controls.start("visible")
+    }
+    startAnimation()
+
+    return () => {
+      controls.stop()
+    }
+  }, [controls])
 
   const steps = [
     {
@@ -18,90 +26,171 @@ export default function HowItWorksComponent() {
       title: "Data Collection",
       description: "Integrate with your existing systems or use our IoT sensors to collect emissions data.",
       icon: Database,
-      color: "from-green-500 to-emerald-500"
+      lightGradient: "from-blue-100 via-blue-200 to-blue-300",
+      darkGradient: "dark:from-blue-900 dark:via-blue-800 dark:to-blue-700",
+      hoverLight: "hover:from-blue-200 hover:via-blue-300 hover:to-blue-400",
+      hoverDark: "dark:hover:from-blue-800 dark:hover:via-blue-700 dark:hover:to-blue-600"
     },
     {
       number: 2,
       title: "Analysis",
       description: "Our AI algorithms process and analyze your data to provide actionable insights.",
       icon: Brain,
-      color: "from-emerald-500 to-teal-500"
+      lightGradient: "from-yellow-100 via-yellow-200 to-orange-200",
+      darkGradient: "dark:from-yellow-900 dark:via-yellow-800 dark:to-orange-800",
+      hoverLight: "hover:from-yellow-200 hover:via-yellow-300 hover:to-orange-300",
+      hoverDark: "dark:hover:from-yellow-800 dark:hover:via-yellow-700 dark:hover:to-orange-700"
     },
     {
       number: 3,
       title: "Strategize",
       description: "Develop data-driven strategies to reduce emissions and improve efficiency.",
       icon: Lightbulb,
-      color: "from-teal-500 to-cyan-500"
+      lightGradient: "from-pink-100 via-purple-200 to-indigo-200",
+      darkGradient: "dark:from-pink-900 dark:via-purple-800 dark:to-indigo-800",
+      hoverLight: "hover:from-pink-200 hover:via-purple-300 hover:to-indigo-300",
+      hoverDark: "dark:hover:from-pink-800 dark:hover:via-purple-700 dark:hover:to-indigo-700"
     },
     {
       number: 4,
       title: "Implement & Monitor",
       description: "Put your plans into action and track progress in real-time.",
       icon: LineChart,
-      color: "from-cyan-500 to-blue-500"
+      lightGradient: "from-teal-100 via-teal-200 to-emerald-200",
+      darkGradient: "dark:from-teal-900 dark:via-teal-800 dark:to-emerald-800",
+      hoverLight: "hover:from-teal-200 hover:via-teal-300 hover:to-emerald-300",
+      hoverDark: "dark:hover:from-teal-800 dark:hover:via-teal-700 dark:hover:to-emerald-700"
     }
   ]
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  }
+
   return (
-    <div className="py-12 px-4">
-      <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in-down">How Carbon Infinity Works</h2>
-      <div className="max-w-6xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {steps.map((step, index) => {
-          const Icon = step.icon
-          return (
-            <div
-              key={step.number}
-              className={`transform transition-all duration-500 ease-in-out ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              <Card
-                className="relative overflow-hidden cursor-pointer group hover:shadow-lg transition-shadow duration-300"
-                onMouseEnter={() => setActiveStep(index)}
-              >
-                <CardContent className="p-6">
-                  <div 
-                    className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r opacity-75 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{
-                      backgroundImage: `linear-gradient(to right, ${step.color})`
-                    }}
-                  />
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`
-                      w-12 h-12 rounded-full flex items-center justify-center text-white
-                      bg-gradient-to-br ${step.color} transform group-hover:scale-110 transition-transform duration-300
-                    `}>
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div className="font-semibold text-xl group-hover:text-green-600 transition-colors duration-300">{step.title}</div>
-                  </div>
-                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                    {step.description}
-                  </p>
-                  <div className={`
-                    absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r transform scale-x-0 
-                    group-hover:scale-x-100 transition-transform duration-500 ${step.color}
-                  `} />
-                </CardContent>
-              </Card>
-            </div>
-          )
-        })}
-      </div>
-      <div className="mt-12 flex justify-center gap-2">
-        {steps.map((step, index) => (
-          <button
-            key={index}
-            className={`
-              w-3 h-3 rounded-full cursor-pointer transition-all duration-300
-              ${activeStep === index ? 'bg-green-500 scale-125' : 'bg-gray-300 hover:bg-gray-400'}
-            `}
-            onClick={() => setActiveStep(index)}
+    <div className="relative py-12 px-4 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1000 1000"
+          preserveAspectRatio="none"
+        >
+          <motion.path
+            d="M0,1000 C300,800 400,600 500,600 C600,600 700,800 1000,1000"
+            fill="none"
+            stroke="rgb(22, 163, 74)"
+            strokeWidth="1"
+            className="animate-wave"
+            style={{ animationDelay: "0.2s" }}
           />
-        ))}
+          <motion.path
+            d="M0,800 C200,1000 300,900 500,800 C700,700 800,900 1000,800"
+            fill="none"
+            stroke="rgb(22, 163, 74)"
+            strokeWidth="1"
+            className="animate-wave"
+            style={{ animationDelay: "0.2s" }}
+          />
+          <motion.path
+            d="M0,600 C100,500 300,700 500,600 C700,500 900,700 1000,600"
+            fill="none"
+            stroke="rgb(22, 163, 74)"
+            strokeWidth="1"
+            className="animate-wave"
+            style={{ animationDelay: "0.2s" }}
+          />
+        </svg>
+      </div>
+
+      <div className="relative z-10">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-3xl font-bold text-center mb-12 text-foreground"
+        >
+          How Carbon Infinity Works
+        </motion.h2>
+        
+        <motion.div 
+          className="max-w-6xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-4"
+          variants={containerVariants}
+          initial="hidden"
+          animate={controls}
+        >
+          {steps.map((step) => {
+            const Icon = step.icon
+            return (
+              <motion.div
+                key={step.number}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05, zIndex: 1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Card className={cn(
+                  "relative h-[400px] overflow-hidden cursor-pointer",
+                  "bg-gradient-to-br transition-all duration-500",
+                  step.lightGradient,
+                  step.darkGradient,
+                  step.hoverLight,
+                  step.hoverDark
+                )}>
+                  <motion.div 
+                    className="absolute inset-0 bg-background/10 backdrop-blur-[2px]"
+                    whileHover={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  
+                  <div className="relative h-full p-6 flex flex-col">
+                    <motion.div 
+                      className="text-foreground/80 mb-auto"
+                      whileHover={{ scale: 1.1, rotate: 360 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Icon className="w-8 h-8" />
+                    </motion.div>
+                    
+                    <div className="mt-auto">
+                      <motion.h3 
+                        className="text-2xl font-semibold text-foreground mb-2"
+                        whileHover={{ x: 10 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        {step.title}
+                      </motion.h3>
+                      <motion.p 
+                        className="text-foreground/80 text-sm"
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                      >
+                        {step.description}
+                      </motion.p>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            )
+          })}
+        </motion.div>
       </div>
     </div>
   )
-} 
+}

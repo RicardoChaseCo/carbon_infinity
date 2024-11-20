@@ -45,9 +45,9 @@ export default function CarbonHero() {
   ]
 
   return (
-    <div className="relative min-h-[90vh] py-20 md:py-32">
+    <div className="relative min-h-[calc(100vh-56px)] py-20 md:py-32">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-white dark:from-green-950 dark:to-gray-900">
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-50 to-green-100 dark:from-green-950 dark:to-gray-900">
         <WaveBackground />
       </div>
 

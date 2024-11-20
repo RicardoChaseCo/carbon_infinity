@@ -9,6 +9,7 @@ import CarbonDataFlowLanding from "@/components/carbon-data-flow-landing"
 import HowItWorksComponent from "@/components/how-it-works"
 import LandingBlocks from "@/components/landing-blocks"
 import CarbonHero from "@/components/carbon-hero"
+import { SharedWaveBackground } from "@/components/shared-wave-background"
 
 export function CarbonSoftwareLandingComponent() {
   return (
@@ -17,11 +18,14 @@ export function CarbonSoftwareLandingComponent() {
         {/* Hero Section */}
         <CarbonHero />
 
-        {/* Key Features Section */}
-        <LandingBlocks />
-
-        {/* Add Carbon Data Flow Section here */}
-        <CarbonDataFlowLanding />
+        {/* Features and Data Flow sections with shared background */}
+        <div className="relative bg-gray-50 dark:bg-gray-900">
+          <SharedWaveBackground />
+          <div className="relative z-10">
+            <LandingBlocks />
+            <CarbonDataFlowLanding />
+          </div>
+        </div>
 
         {/* How It Works Section */}
         <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gray-50 dark:bg-gray-900">
@@ -45,8 +49,8 @@ export function CarbonSoftwareLandingComponent() {
                   <h3 className="text-2xl font-semibold mb-4 dark:text-white">Intuitive Dashboard</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">Get a bird's-eye view of your organization's carbon footprint with our intuitive dashboard. Visualize key metrics, track progress towards goals, and identify areas for improvement at a glance.</p>
                   <Image
-                    src="/placeholder.svg?height=300&width=600"
-                    width={600}
+                    src="/graced_dashboard.png"
+                    width={1000}
                     height={300}
                     alt="Carbon Infinity Dashboard"
                     className="rounded-lg shadow-md"

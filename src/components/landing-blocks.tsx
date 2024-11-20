@@ -1,6 +1,50 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Database, Lock, Zap, HardDrive, Radio, Box, PiIcon as Api } from 'lucide-react'
 
+function WaveBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden -translate-y-24">
+      <svg
+        className="absolute w-full h-full opacity-20"
+        viewBox="0 0 1000 1000"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <path
+          d="M 0 700 Q 400 600 800 750 T 1600 700"
+          fill="none"
+          stroke="rgb(22, 163, 74)"
+          strokeWidth="1"
+          className="animate-wave"
+        />
+        <path
+          d="M 0 750 Q 300 650 600 800 T 1200 750"
+          fill="none"
+          stroke="rgb(22, 163, 74)"
+          strokeWidth="1"
+          className="animate-wave"
+          style={{ animationDelay: "0.2s" }}
+        />
+        <path
+          d="M 0 800 Q 400 700 800 850 T 1600 800"
+          fill="none"
+          stroke="rgb(22, 163, 74)"
+          strokeWidth="1"
+          className="animate-wave"
+          style={{ animationDelay: "0.4s" }}
+        />
+        <path
+          d="M 0 850 Q 300 750 600 900 T 1200 850"
+          fill="none"
+          stroke="rgb(22, 163, 74)"
+          strokeWidth="1"
+          className="animate-wave"
+          style={{ animationDelay: "0.6s" }}
+        />
+      </svg>
+    </div>
+  )
+}
+
 export default function Component() {
   const features = [
     {
@@ -9,8 +53,8 @@ export default function Component() {
       description: "Every project is a full Postgres database, the world's most trusted relational database.",
       bulletPoints: ["100% portable", "Built-in Auth with RLS", "Easy to extend"],
       illustration: (
-        <div className="w-full aspect-square flex items-center justify-center p-4">
-          <div className="w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full" />
+        <div className="w-full flex items-center justify-center p-4 h-24">
+          <div className="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full" />
         </div>
       ),
       wide: true
@@ -88,8 +132,9 @@ export default function Component() {
   ]
 
   return (
-    <section className="py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-4 bg-gray-50 dark:bg-gray-900 relative">
+      <WaveBackground />
+      <div className="max-w-7xl mx-auto relative">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, i) => (
             <Card 
