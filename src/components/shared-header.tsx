@@ -110,17 +110,7 @@ export function SharedHeader() {
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link href="/resources/team" className="w-full">
-                  Team
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/resources/blogs" className="w-full">
-                  Blog
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/resources/faqs" className="w-full">
-                  FAQs
+                  Meet the Team
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -320,21 +310,7 @@ export function SharedHeader() {
                   href="/resources/team"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Team
-                </Link>
-                <Link 
-                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                  href="/resources/blogs"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Blog
-                </Link>
-                <Link 
-                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                  href="/resources/faqs"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  FAQs
+                  Meet the Team
                 </Link>
               </div>
             )}
