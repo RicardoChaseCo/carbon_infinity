@@ -137,11 +137,11 @@ export default function TeamPage() {
 
         <section className="mb-20">
           <h2 className="text-2xl font-semibold mb-8">Our Global Team</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
             {teamMembers.map((member) => (
               <Card 
                 key={member.name} 
-                className="overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer dark:bg-emerald-800"
+                className="overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer dark:bg-emerald-800 w-full"
                 onClick={() => setSelectedMember(member)}
               >
                 <CardContent className="p-0">
@@ -169,11 +169,11 @@ export default function TeamPage() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-8">Our Global Advisors</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
             {advisors.map((advisor) => (
               <Card 
                 key={advisor.name} 
-                className="overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer dark:bg-emerald-800"
+                className="overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer dark:bg-emerald-800 w-full"
                 onClick={() => setSelectedMember(advisor)}
               >
                 <CardContent className="p-0">
