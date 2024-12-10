@@ -1,4 +1,4 @@
-import { CarbonSoftwareLandingComponent } from "@/components/carbon-software-landing";
+import CarbonSoftwareLandingComponent from "@/components/carbon-software-landing";
 
 export default function Home() {
   return (

@@ -11,7 +11,7 @@ import LandingBlocks from "@/components/landing-blocks"
 import CarbonHero from "@/components/carbon-hero"
 import { SharedWaveBackground } from "@/components/shared-wave-background"
 
-export function CarbonSoftwareLandingComponent() {
+export default function CarbonSoftwareLandingComponent() {
   return (
     <div className="flex flex-col pt-14 dark:bg-gray-900">
       <main className="flex-1">

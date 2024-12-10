@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/button"
-import { Leaf, Menu } from "lucide-react"
+import { Leaf, Menu, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { useState } from 'react'
 import {
@@ -19,6 +19,7 @@ export function SharedHeader() {
   const [productsOpen, setProductsOpen] = useState(false);
   const [developersOpen, setDevelopersOpen] = useState(false);
 
+
   return (
     <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background/70 backdrop-blur-md border-b border-border z-50">
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 grid grid-cols-[auto,1fr,auto] items-center gap-4">
@@ -27,33 +28,43 @@ export function SharedHeader() {
           <span className="ml-2 text-lg sm:text-2xl font-bold text-foreground">Carbon Infinity</span>
         </Link>
         <nav className="hidden md:flex gap-4 sm:gap-6 justify-center">
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-sm font-medium hover:text-green-600 transition-colors">
-              Products
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-green-600 transition-colors">
+                Products
+              </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent sideOffset={8}>
               <DropdownMenuItem>
-                <Link href="/products" className="w-full">
-                  Overview
+                <Link href="/products/satellite-edge" className="w-full">
+                  Satellite Edge Computing
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/products/data-dashboard" className="w-full">
-                  Data Dashboard
+                <Link 
+                  href="https://www.carbonmonitor-graced.com/index.html" 
+                  className="w-full flex items-center justify-between"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Carbon Data Dashboard
+                  <ExternalLink className="h-4 w-4 ml-2" />
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/products/online-database" className="w-full">
-                  Online Database
+                <Link href="/products/decision-system" className="w-full">
+                  Global Decision System
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-sm font-medium hover:text-green-600 transition-colors">
-              Solutions
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-green-600 transition-colors">
+                Solutions
+              </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent sideOffset={8}>
               <DropdownMenuItem>
                 <Link href="/solutions" className="w-full">
                   Overview
@@ -71,11 +82,13 @@ export function SharedHeader() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-sm font-medium hover:text-green-600 transition-colors">
-              Developers
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-green-600 transition-colors">
+                Developers
+              </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent sideOffset={8}>
               <DropdownMenuItem>
                 <Link href="/developers" className="w-full">
                   Overview
@@ -93,11 +106,13 @@ export function SharedHeader() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-sm font-medium hover:text-green-600 transition-colors">
-              Resources
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-green-600 transition-colors">
+                Resources
+              </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent sideOffset={8}>
               <DropdownMenuItem>
                 <Link href="/resources/about" className="w-full">
                   About Us
