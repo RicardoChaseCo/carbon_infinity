@@ -2,29 +2,30 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ArrowRight, ExternalLink, Lock, Shield, ShieldCheck, Satellite, Zap, Globe, Activity } from 'lucide-react'
+import { ArrowRight, Satellite, Database, Brain, BarChart3, Globe2, Building2, Workflow } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { FeatureCard } from '@/components/feature-card'
 
 export default function Page() {
   return (
-    <div className="min-h-screen pt-14 w-full bg-white dark:bg-black text-gray-900 dark:text-white flex flex-col items-center">
-      {/* Hero Section */}
-      <section className="py-12 md:py-20 w-full">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+    <div className="min-h-screen w-full bg-white dark:bg-black text-gray-900 dark:text-white">
+      {/* Hero Section - Updated */}
+      <section className="py-12 lg:py-20">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="flex flex-col justify-center space-y-4"
             >
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Real-Time Satellite Edge Computing for Energy Trading
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl xl:text-6xl/none">
+                Real-Time Energy Trading Intelligence
               </h1>
-              <p className="max-w-[600px] text-base md:text-xl text-gray-600 dark:text-gray-400">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400">
                 Harness the power of satellite clusters and edge computing for instant energy market insights and trading opportunities.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex">
                 <Button className="w-full sm:w-auto bg-green-100 hover:bg-green-200 text-green-800 dark:bg-green-800 dark:hover:bg-green-700 dark:text-green-100">
                   Explore Platform
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -35,7 +36,7 @@ export default function Page() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative lg:block pl-0 md:pl-16 mt-8 lg:mt-0"
+              className="relative mt-8 lg:mt-0"
             >
               <Image
                 src="/satellite.jpg"
@@ -49,139 +50,125 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Edge Computing Section */}
-      <section className="py-12 md:py-24 bg-gray-50 dark:bg-gray-900 w-full">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="space-y-6">
-            <div className="max-w-[800px] text-center mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
-                Advanced Satellite Cluster Edge Computing
-              </h2>
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
-                Our distributed satellite network processes energy data in real-time, providing traders with millisecond-level insights for optimal decision-making.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {/* Real-time Analysis Card */}
-              <div className="rounded-lg border border-green-100 dark:border-green-800 bg-white dark:bg-black p-6">
-                <div className="h-[140px] flex items-center justify-center bg-gray-50 dark:bg-gray-900 rounded-md mb-4">
-                  <Zap className="h-16 w-16 text-green-500" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Instant Energy Analysis</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Process global energy production and consumption data in real-time for immediate market insights.
-                </p>
+      {/* Project Overview Section */}
+      <section className="py-12 md:py-24 bg-gray-50 dark:bg-gray-900">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+          <div className="mx-auto max-w-[800px] text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+              Revolutionize Your Commodity Trading
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 md:text-xl mb-8">
+              Our cutting-edge platform predicts commodity prices and supply changes by analyzing high-precision CO₂ emissions data from industrial clusters. Gain a competitive edge with our satellite-powered insights.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <FeatureCard
+              icon={Satellite}
+              title="Advanced Data Collection"
+              description="Leverage high-precision CO₂ emissions data from OCO-2/3 and TROPOMI satellites, combined with NOAA GML and ICOS ground stations for unparalleled market insights."
+              className="sm:col-span-2 lg:col-span-1"
+            >
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">OCO-2/3</span>
+                <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">TROPOMI</span>
+                <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">NOAA GML</span>
               </div>
-
-              {/* Satellite Cluster Card */}
-              <div className="rounded-lg border border-green-100 dark:border-green-800 bg-white dark:bg-black p-6">
-                <div className="h-[140px] flex items-center justify-center bg-gray-50 dark:bg-gray-900 rounded-md mb-4">
-                  <div className="flex items-center gap-4">
-                    <Satellite className="h-8 w-8 text-green-500" />
-                    <Activity className="h-8 w-8 text-green-500" />
-                    <Globe className="h-8 w-8 text-green-500" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Global Satellite Network</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Leverage our vast network of satellites for comprehensive energy market coverage and analysis.
-                </p>
+            </FeatureCard>
+            <FeatureCard
+              icon={Database}
+              title="Intelligent Data Processing"
+              description="Our advanced Radiation Transfer Models (RTM) correct and refine satellite data, providing you with the most accurate industrial activity indicators at the factory level."
+              className="sm:col-span-2"
+            >
+              <pre className="text-sm text-gray-600 dark:text-gray-400">
+                <code>RTM + Ground Calibration → Factory-Level Data</code>
+              </pre>
+            </FeatureCard>
+            <FeatureCard
+              icon={Brain}
+              title="AI-Powered Predictions"
+              description="Harness the power of XGBoost and LSTM models, optimized through Bayesian techniques and AutoML, to forecast production capacity and commodity prices with unprecedented accuracy."
+              className="sm:col-span-2"
+            >
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">XGBoost</span>
+                <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">LSTM</span>
+                <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">AutoML</span>
               </div>
-
-              {/* Integration Card */}
-              <div className="rounded-lg border border-green-100 dark:border-green-800 bg-white dark:bg-black p-6">
-                <div className="h-[140px] flex items-center justify-center bg-gray-50 dark:bg-gray-900 rounded-md mb-4">
-                  <div className="grid grid-cols-4 gap-2">
-                    {Array.from({ length: 8 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="w-12 h-6 rounded bg-green-100 dark:bg-green-800"
-                      />
-                    ))}
-                  </div>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Seamless Integrations</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Connect with major energy trading platforms and exchanges for streamlined operations and execution.
-                </p>
+            </FeatureCard>
+            <FeatureCard
+              icon={BarChart3}
+              title="Robust Model Validation"
+              description="Trust in our predictions with comprehensive validation against industry statistics and advanced interpretability tools like SHAP and LIME."
+              className="sm:col-span-2 lg:col-span-1"
+            >
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">SHAP</span>
+                <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">LIME</span>
               </div>
-            </div>
+            </FeatureCard>
+            <FeatureCard
+              icon={Globe2}
+              title="Global Market Coverage"
+              description="Stay ahead with our worldwide monitoring of industrial clusters and regular model updates adapting to market changes."
+              className="sm:col-span-2 lg:col-span-1"
+            >
+              <div className="grid grid-cols-4 gap-2">
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="h-6 rounded bg-green-100 dark:bg-green-900"
+                  />
+                ))}
+              </div>
+            </FeatureCard>
+            <FeatureCard
+              icon={Building2}
+              title="Tailored Industry Solutions"
+              description="Access customized data feeds and APIs designed specifically for hedge funds and energy trading companies, with quarterly and monthly updates of capacity and price prediction data."
+              className="sm:col-span-2"
+            >
+              <pre className="text-sm text-gray-600 dark:text-gray-400">
+                <code>REST API + Real-time WebSocket feeds</code>
+              </pre>
+            </FeatureCard>
           </div>
         </div>
       </section>
 
-      {/* API Documentation Section */}
-      <section className="py-12 md:py-24 w-full">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="space-y-8">
-            <div className="max-w-[800px] text-center mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
-                Powerful Satellite Cluster APIs
-              </h2>
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
-                Access real-time energy data with our intuitive APIs. Designed for both edge computing in space and ground-based trading systems.
-              </p>
-              <div className="mt-4 flex justify-center">
-                <Button variant="outline" className="border-green-100 dark:border-green-800">
-                  Explore documentation
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </div>
+      {/* Data Pipeline Section */}
+      <section className="py-12 md:py-24">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter mb-8 text-center">Our Advanced Data Pipeline</h2>
+          <FeatureCard
+            icon={Workflow}
+            title="End-to-End Processing"
+            description="From satellite data acquisition to ML model deployment, our pipeline ensures the highest quality insights for your trading decisions."
+            className="sm:col-span-2"
+          >
+            <pre className="text-sm text-gray-600 dark:text-gray-400">
+              <code>{`Satellite Data → RTM Processing
+→ Feature Extraction → ML Training
+→ Validation → Deployment`}</code>
+            </pre>
+          </FeatureCard>
+        </div>
+      </section>
 
-            <div className="grid lg:grid-cols-2 gap-8 items-start">
-              <div className="rounded-lg border border-green-100 dark:border-green-800 bg-white dark:bg-black p-4 overflow-x-auto">
-                <pre className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg overflow-x-auto">
-                  <code className="text-sm text-gray-600 dark:text-gray-400">
-{`import { createSatelliteCluster } from '@energy-edge/cluster-js'
-
-const cluster = createSatelliteCluster('CLUSTER_ID', 'API_KEY')
-const energyStream = cluster
-  .stream('getEnergyMetricsStream')
-  .on('energy_data', {
-    event: 'UPDATE',
-    region: 'global',
-    metric: 'production_consumption'
-  }, payload => {
-    console.log('Real-time energy data:', payload)
-    // Process data for trading decisions
-  })
-  .subscribe()`}
-                  </code>
-                </pre>
-              </div>
-              <div className="space-y-8">
-                <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-bold">Transform energy trading with satellite intelligence</h3>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button className="w-full sm:w-auto bg-green-100 hover:bg-green-200 text-green-800 dark:bg-green-800 dark:hover:bg-green-700 dark:text-green-100">
-                      Start your project
-                    </Button>
-                    <Button variant="outline" className="w-full sm:w-auto border-green-100 dark:border-green-800">
-                      Request a demo
-                    </Button>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <p className="text-gray-600 dark:text-gray-400 flex items-center gap-2">
-                    <Lock className="h-4 w-4" />
-                    Secure satellite-to-ground transmission.
-                    <span className="text-green-600 dark:text-green-400">More on Security</span>
-                  </p>
-                  <div className="flex gap-6">
-                    <div className="flex items-center gap-2">
-                      <ShieldCheck className="h-5 w-5 text-green-600 dark:text-green-400" />
-                      <span className="text-sm">AES-256 Encryption</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-green-600 dark:text-green-400" />
-                      <span className="text-sm">SOC 2 Type II Compliant</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* Call to Action */}
+      <section className="py-12 md:py-24 bg-gray-50 dark:bg-gray-900">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+          <div className="mx-auto max-w-[800px] text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter mb-4">
+              Ready to Transform Your Trading Strategy?
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-8">
+              Join the future of commodity trading with our innovative satellite-powered analytics platform.
+            </p>
+            <Button className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white dark:bg-green-400 dark:hover:bg-green-500 dark:text-black">
+              Get Started Today
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>
