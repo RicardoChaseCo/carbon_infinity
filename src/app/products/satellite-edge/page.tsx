@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Satellite, Database, Brain, BarChart3, Globe2, Building2, Workflow } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { FeatureCard } from '@/components/feature-card'
+import { FlowChart } from '@/components/flow-chart'
 
 export default function Page() {
   return (
@@ -61,12 +62,12 @@ export default function Page() {
               Our cutting-edge platform predicts commodity prices and supply changes by analyzing high-precision CO₂ emissions data from industrial clusters. Gain a competitive edge with our satellite-powered insights.
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
             <FeatureCard
               icon={Satellite}
               title="Advanced Data Collection"
               description="Leverage high-precision CO₂ emissions data from OCO-2/3 and TROPOMI satellites, combined with NOAA GML and ICOS ground stations for unparalleled market insights."
-              className="sm:col-span-2 lg:col-span-1"
+              className="lg:col-span-2"
             >
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">OCO-2/3</span>
@@ -74,21 +75,23 @@ export default function Page() {
                 <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">NOAA GML</span>
               </div>
             </FeatureCard>
+            
             <FeatureCard
               icon={Database}
               title="Intelligent Data Processing"
               description="Our advanced Radiation Transfer Models (RTM) correct and refine satellite data, providing you with the most accurate industrial activity indicators at the factory level."
-              className="sm:col-span-2"
+              className="lg:col-span-1"
             >
               <pre className="text-sm text-gray-600 dark:text-gray-400">
                 <code>RTM + Ground Calibration → Factory-Level Data</code>
               </pre>
             </FeatureCard>
+
             <FeatureCard
               icon={Brain}
               title="AI-Powered Predictions"
               description="Harness the power of XGBoost and LSTM models, optimized through Bayesian techniques and AutoML, to forecast production capacity and commodity prices with unprecedented accuracy."
-              className="sm:col-span-2"
+              className="lg:col-span-1"
             >
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">XGBoost</span>
@@ -96,22 +99,24 @@ export default function Page() {
                 <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">AutoML</span>
               </div>
             </FeatureCard>
+
             <FeatureCard
               icon={BarChart3}
               title="Robust Model Validation"
               description="Trust in our predictions with comprehensive validation against industry statistics and advanced interpretability tools like SHAP and LIME."
-              className="sm:col-span-2 lg:col-span-1"
+              className="lg:col-span-2"
             >
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">SHAP</span>
                 <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">LIME</span>
               </div>
             </FeatureCard>
+
             <FeatureCard
               icon={Globe2}
               title="Global Market Coverage"
               description="Stay ahead with our worldwide monitoring of industrial clusters and regular model updates adapting to market changes."
-              className="sm:col-span-2 lg:col-span-1"
+              className="lg:col-span-2"
             >
               <div className="grid grid-cols-4 gap-2">
                 {Array.from({ length: 8 }).map((_, i) => (
@@ -122,11 +127,12 @@ export default function Page() {
                 ))}
               </div>
             </FeatureCard>
+
             <FeatureCard
               icon={Building2}
               title="Tailored Industry Solutions"
               description="Access customized data feeds and APIs designed specifically for hedge funds and energy trading companies, with quarterly and monthly updates of capacity and price prediction data."
-              className="sm:col-span-2"
+              className="lg:col-span-1"
             >
               <pre className="text-sm text-gray-600 dark:text-gray-400">
                 <code>REST API + Real-time WebSocket feeds</code>
@@ -144,7 +150,7 @@ export default function Page() {
             icon={Workflow}
             title="End-to-End Processing"
             description="From satellite data acquisition to ML model deployment, our pipeline ensures the highest quality insights for your trading decisions."
-            className="sm:col-span-2"
+            className="w-full"
           >
             <pre className="text-sm text-gray-600 dark:text-gray-400">
               <code>{`Satellite Data → RTM Processing
@@ -152,6 +158,10 @@ export default function Page() {
 → Validation → Deployment`}</code>
             </pre>
           </FeatureCard>
+          
+          <div className="mt-12">
+            <FlowChart />
+          </div>
         </div>
       </section>
 
