@@ -65,7 +65,7 @@ export default function DocsPage() {
   )
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-br from-green-50 to-purple-100 pt-14">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-br from-green-50 to-purple-100">
       <button
         className="md:hidden p-4 text-white bg-green-600 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}

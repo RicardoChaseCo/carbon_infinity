@@ -10,7 +10,7 @@ import Image from "next/image"
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen pt-14 flex-col bg-white dark:bg-black items-center justify-center">
+    <main className="flex min-h-screen flex-col bg-white dark:bg-black items-center justify-center">
       {/* Hero Section */}
       <section className="py-12 md:py-20 w-full">
         <div className="container mx-auto px-4 md:px-6">

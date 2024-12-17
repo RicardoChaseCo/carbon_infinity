@@ -115,7 +115,7 @@ export default function TeamPage() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
 
   return (
-    <div className="min-h-screen pt-14 bg-gradient-to-b from-gray-50 to-gray-50 dark:from-emerald-900/40 dark:to-gray-900 text-gray-900 dark:text-gray-100 relative">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-50 dark:from-emerald-900/40 dark:to-gray-900 text-gray-900 dark:text-gray-100 relative">
       <GridBackground />
       <div className="container mx-auto px-4 py-16 relative">
         <div className="text-center mb-16">

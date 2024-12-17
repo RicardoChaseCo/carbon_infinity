@@ -62,6 +62,7 @@ const initialNodes: Node[] = [
   { id: '8', type: 'custom', position: { x: 250, y: 150 }, data: { label: 'Trade Zone Delineation', icon: '🌐', type: 'model' } },
   
   // Second Input Layer
+  { id: '40', type: 'custom', position: { x: 250, y: 550 }, data: { label: 'Trade Zone Definitions', icon: '🗺️', type: 'input' } },
   { id: '4', type: 'custom', position: { x: 250, y: 350 }, data: { label: 'CO₂ Satellite', icon: '🛰️', type: 'input' } },
   { id: '5', type: 'custom', position: { x: 250, y: 450 }, data: { label: 'Industrial Activity', icon: '🏭', type: 'input' } },
   
@@ -72,6 +73,7 @@ const initialNodes: Node[] = [
   { id: '10', type: 'custom', position: { x: 750, y: 250 }, data: { label: 'IOSI Aggregation', icon: '📊', type: 'model' } },
   
   // Final Input Layer
+  { id: '60', type: 'custom', position: { x: 750, y: 650 }, data: { label: 'IOSI', icon: '📊', type: 'input' } },
   { id: '6', type: 'custom', position: { x: 750, y: 450 }, data: { label: 'Macro Indicators', icon: '📈', type: 'input' } },
   { id: '7', type: 'custom', position: { x: 750, y: 550 }, data: { label: 'Historical Prices', icon: '💰', type: 'input' } },
   
@@ -109,6 +111,12 @@ const initialEdges: Edge[] = [
   { id: 'e6-11', source: '6', target: '11', animated: true, type: 'smoothstep', style: { stroke: '#10b981', strokeWidth: 2 } },
   { id: 'e7-11', source: '7', target: '11', animated: true, type: 'smoothstep', style: { stroke: '#10b981', strokeWidth: 2 } },
   { id: 'e11-15', source: '11', target: '15', animated: true, type: 'smoothstep', style: { stroke: '#10b981', strokeWidth: 2 } },
+
+  // Direct connections to Price Forecast
+  { id: 'e14-15', source: '14', target: '15', animated: true, type: 'smoothstep', style: { stroke: '#10b981', strokeWidth: 2 } },
+  { id: 'e12-15', source: '12', target: '15', animated: true, type: 'smoothstep', style: { stroke: '#10b981', strokeWidth: 2 } },
+  { id: 'e12-16', source: '40', target: '9', animated: true, type: 'smoothstep', style: { stroke: '#10b981', strokeWidth: 2 } },
+  { id: 'e12-17', source: '60', target: '11', animated: true, type: 'smoothstep', style: { stroke: '#10b981', strokeWidth: 2 } },
 ];
 
 export function FlowChart() {

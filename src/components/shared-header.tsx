@@ -1,337 +1,393 @@
-'use client'
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Leaf, Menu, ExternalLink } from "lucide-react"
-import Link from "next/link"
-import { useState } from 'react'
+import { Button } from "@/components/ui/button";
+import { Leaf, Menu, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu"
-import { ThemeToggle } from "@/components/theme-toggle"
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+
+const products = [
+  {
+    title: "Satellite Edge Computing",
+    description: "Edge computing solutions for satellite data",
+    href: "/products/satellite-edge",
+    icon: "🛰️",
+  },
+  {
+    title: "Carbon Data Dashboard",
+    description: "Real-time carbon monitoring dashboard",
+    href: "https://www.carbonmonitor-graced.com/index.html",
+    icon: "📊",
+    external: true,
+  },
+  {
+    title: "Global Decision System",
+    description: "AI-powered decision making platform",
+    href: "/products/decision-system",
+    icon: "🌍",
+  },
+];
+
+const developers = [
+  {
+    title: "Overview",
+    description: "Learn about our platform capabilities and features",
+    href: "/developers",
+    icon: "📚",
+  },
+  {
+    title: "Documentation",
+    description: "Detailed API references and integration guides",
+    href: "/developers/docs",
+    icon: "📖",
+  },
+  {
+    title: "Developer Portal",
+    description: "Access tools, SDKs, and developer resources",
+    href: "/developers/developer",
+    icon: "🛠️",
+  },
+];
+
+const resources = [
+  {
+    title: "About Us",
+    description: "Our mission and commitment to sustainability",
+    href: "/resources/about",
+    icon: "🌱",
+  },
+  {
+    title: "Our Vision",
+    description: "The future of carbon monitoring and analysis",
+    href: "/resources/vision",
+    icon: "🔭",
+  },
+  {
+    title: "Meet the Team",
+    description: "The experts behind Carbon Infinity",
+    href: "/resources/team",
+    icon: "👥",
+  },
+];
+
+const research = [
+  {
+    title: "Mining Detection",
+    description:
+      "AI-powered detection of mining activities using satellite data",
+    href: "/research/mining-detection",
+    icon: "🔍",
+  },
+];
 
 export function SharedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [developersOpen, setDevelopersOpen] = useState(false);
+  const [researchOpen, setResearchOpen] = useState(false);
 
+  const sections = [
+    {
+      title: "Products",
+      items: products,
+      id: "products",
+    },
+    {
+      title: "Research",
+      items: research,
+      id: "research",
+    },
+    {
+      title: "Developers",
+      items: developers,
+      id: "developers",
+    },
+    {
+      title: "Resources",
+      items: resources,
+      id: "resources",
+    },
+  ];
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background/70 backdrop-blur-md border-b border-border z-50">
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 grid grid-cols-[auto,1fr,auto] items-center gap-4">
-        <Link className="flex items-center justify-center" href="/">
+    <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background/70 backdrop-blur-md border-b border-border z-[60]">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex items-center justify-between">
+        {/* Logo */}
+        <Link className="flex items-center space-x-2" href="/">
           <Leaf className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
-          <span className="ml-2 text-lg sm:text-2xl font-bold text-foreground">Carbon Infinity</span>
+          <span className="text-xl font-bold text-foreground">
+            Carbon Infinity
+          </span>
         </Link>
-        <nav className="hidden md:flex gap-4 sm:gap-6 justify-center">
-          <DropdownMenu modal={false}>
-            <DropdownMenuTrigger asChild>
-              <button className="text-sm font-medium hover:text-green-600 transition-colors">
-                Products
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent sideOffset={8}>
-              <DropdownMenuItem>
-                <Link href="/products/satellite-edge" className="w-full">
-                  Satellite Edge Computing
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link 
-                  href="https://www.carbonmonitor-graced.com/index.html" 
-                  className="w-full flex items-center justify-between"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Carbon Data Dashboard
-                  <ExternalLink className="h-4 w-4 ml-2" />
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/products/decision-system" className="w-full">
-                  Global Decision System
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu modal={false}>
-            <DropdownMenuTrigger asChild>
-              <button className="text-sm font-medium hover:text-green-600 transition-colors">
-                Solutions
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent sideOffset={8}>
-              <DropdownMenuItem>
-                <Link href="/solutions" className="w-full">
-                  Overview
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/solutions/carbon-consulting" className="w-full">
-                  Carbon Consulting
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/solutions/showcase" className="w-full">
-                  Showcase
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu modal={false}>
-            <DropdownMenuTrigger asChild>
-              <button className="text-sm font-medium hover:text-green-600 transition-colors">
-                Developers
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent sideOffset={8}>
-              <DropdownMenuItem>
-                <Link href="/developers" className="w-full">
-                  Overview
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/developers/docs" className="w-full">
-                  Documentation
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/developers/developer" className="w-full">
-                  Developer Portal
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu modal={false}>
-            <DropdownMenuTrigger asChild>
-              <button className="text-sm font-medium hover:text-green-600 transition-colors">
-                Resources
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent sideOffset={8}>
-              <DropdownMenuItem>
-                <Link href="/resources/about" className="w-full">
-                  About Us
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/resources/vision" className="w-full">
-                  Our Vision
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/resources/team" className="w-full">
-                  Meet the Team
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </nav>
-        <div className="flex items-center gap-2 justify-end">
-          <div className="hidden md:flex items-center gap-2">
+
+        {/* Navigation Menu - Centered */}
+        <NavigationMenu className="hidden md:flex">
+          <NavigationMenuList className="relative space-x-6">
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+              <NavigationMenuContent className="absolute left-0">
+                <div className="grid gap-4 p-6 w-[400px]">
+                  {products.map((product) => (
+                    <Link
+                      key={product.title}
+                      href={product.href}
+                      target={product.external ? "_blank" : undefined}
+                      rel={product.external ? "noopener noreferrer" : undefined}
+                      className="group grid grid-cols-[40px_1fr] gap-2 rounded-lg p-2 hover:bg-muted"
+                    >
+                      <span className="flex h-10 w-10 items-center justify-center rounded-md border bg-background text-xl">
+                        {product.icon}
+                      </span>
+                      <div>
+                        <div className="text-sm font-medium leading-none group-hover:underline">
+                          {product.title}
+                          {product.external && (
+                            <ExternalLink className="inline-block h-4 w-4 ml-1" />
+                          )}
+                        </div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          {product.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Research</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="grid gap-4 p-6 w-[400px]">
+                  {research.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      className="group grid grid-cols-[40px_1fr] gap-2 rounded-lg p-2 hover:bg-muted"
+                    >
+                      <span className="flex h-10 w-10 items-center justify-center rounded-md border bg-background text-xl">
+                        {item.icon}
+                      </span>
+                      <div>
+                        <div className="text-sm font-medium leading-none group-hover:underline">
+                          {item.title}
+                        </div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Developers</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="grid gap-4 p-6 w-[400px]">
+                  {developers.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      className="group grid grid-cols-[40px_1fr] gap-2 rounded-lg p-2 hover:bg-muted"
+                    >
+                      <span className="flex h-10 w-10 items-center justify-center rounded-md border bg-background text-xl">
+                        {item.icon}
+                      </span>
+                      <div>
+                        <div className="text-sm font-medium leading-none group-hover:underline">
+                          {item.title}
+                        </div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="grid gap-4 p-6 w-[400px]">
+                  {resources.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      className="group grid grid-cols-[40px_1fr] gap-2 rounded-lg p-2 hover:bg-muted"
+                    >
+                      <span className="flex h-10 w-10 items-center justify-center rounded-md border bg-background text-xl">
+                        {item.icon}
+                      </span>
+                      <div>
+                        <div className="text-sm font-medium leading-none group-hover:underline">
+                          {item.title}
+                        </div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        {/* Right side buttons */}
+        <div className="flex items-center space-x-6">
+          <div className="hidden md:flex items-center gap-4">
             <Button variant="ghost" size="sm" asChild>
               <Link href="/signin">Sign In</Link>
             </Button>
-            <Button size="sm" className="bg-green-600 text-white hover:bg-green-700" asChild>
+            <Button
+              size="sm"
+              className="bg-green-600 text-white hover:bg-green-700"
+              asChild
+            >
               <Link href="/signup">Sign Up</Link>
             </Button>
           </div>
           <ThemeToggle />
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => {
+              console.log("Toggle menu clicked", !mobileMenuOpen);
+              setMobileMenuOpen(!mobileMenuOpen);
+            }}
+          >
             <Menu className="h-6 w-6" />
             <span className="sr-only">Toggle menu</span>
           </Button>
         </div>
       </div>
-      
+
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="absolute top-14 left-0 right-0 bg-background border-b border-border shadow-lg md:hidden">
           <nav className="flex flex-col p-4">
+            {/* Sign In/Up Section */}
             <div className="flex flex-col gap-2 p-4 border-b border-border">
               <Button variant="ghost" size="sm" asChild className="justify-center">
                 <Link href="/signin">Sign In</Link>
               </Button>
-              <Button size="sm" className="bg-green-600 text-white hover:bg-green-700 justify-center" asChild>
+              <Button
+                size="sm"
+                className="bg-green-600 text-white hover:bg-green-700 justify-center"
+                asChild
+              >
                 <Link href="/signup">Sign Up</Link>
               </Button>
             </div>
-            <div>
-              <button
-                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
-                onClick={() => setProductsOpen(!productsOpen)}
-              >
-                Products
-                <svg
-                  className={`w-4 h-4 transition-transform ${productsOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {productsOpen && (
-                <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
-                  <Link 
-                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                    href="/products"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Overview
-                  </Link>
-                  <Link 
-                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                    href="/products/data-dashboard"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Data Dashboard
-                  </Link>
-                  <Link 
-                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                    href="/products/online-database"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Online Database
-                  </Link>
-                </div>
-              )}
-            </div>
 
-            <div>
-              <button
-                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
-                onClick={() => setSolutionsOpen(!solutionsOpen)}
-              >
-                Solutions
-                <svg
-                  className={`w-4 h-4 transition-transform ${solutionsOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+            {/* Dynamic Sections */}
+            {sections.map((section) => (
+              <div key={section.id}>
+                <button
+                  className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-muted rounded-md"
+                  onClick={() => {
+                    switch (section.id) {
+                      case "products":
+                        setProductsOpen(!productsOpen);
+                        break;
+                      case "developers":
+                        setDevelopersOpen(!developersOpen);
+                        break;
+                      case "resources":
+                        setResourcesOpen(!resourcesOpen);
+                        break;
+                      case "research":
+                        setResearchOpen(!researchOpen);
+                        break;
+                    }
+                  }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {solutionsOpen && (
-                <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
-                  <Link 
-                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                    href="/solutions"
-                    onClick={() => setMobileMenuOpen(false)}
+                  {section.title}
+                  <svg
+                    className={`w-4 h-4 transition-transform ${
+                      (section.id === "products" && productsOpen) ||
+                      (section.id === "developers" && developersOpen) ||
+                      (section.id === "resources" && resourcesOpen) ||
+                      (section.id === "research" && researchOpen)
+                        ? "rotate-180"
+                        : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    Overview
-                  </Link>
-                  <Link 
-                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                    href="/solutions/carbon-consulting"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Carbon Consulting
-                  </Link>
-                  <Link 
-                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                    href="/solutions/showcase"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Showcase
-                  </Link>
-                </div>
-              )}
-            </div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
 
-            <div>
-              <button
-                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
-                onClick={() => setDevelopersOpen(!developersOpen)}
-              >
-                Developers
-                <svg
-                  className={`w-4 h-4 transition-transform ${developersOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {developersOpen && (
-                <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
-                  <Link 
-                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                    href="/developers"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Overview
-                  </Link>
-                  <Link 
-                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                    href="/developers/docs"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Documentation
-                  </Link>
-                  <Link 
-                    className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                    href="/developers/developer"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Developer Portal
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <button
-              className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md"
-              onClick={() => setResourcesOpen(!resourcesOpen)}
-            >
-              Resources
-              <svg
-                className={`w-4 h-4 transition-transform ${resourcesOpen ? 'rotate-180' : ''}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            
-            {resourcesOpen && (
-              <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
-                <Link 
-                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                  href="/resources/about"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  About Us
-                </Link>
-                <Link 
-                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                  href="/resources/vision"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Our Vision
-                </Link>
-                <Link 
-                  className="block px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md" 
-                  href="/resources/team"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Meet the Team
-                </Link>
+                {((section.id === "products" && productsOpen) ||
+                  (section.id === "developers" && developersOpen) ||
+                  (section.id === "resources" && resourcesOpen) ||
+                  (section.id === "research" && researchOpen)) && (
+                  <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
+                    {section.items.map((item) => (
+                      <Link
+                        key={item.title}
+                        className="group flex items-center gap-2 px-4 py-2 text-sm font-medium hover:bg-muted rounded-md"
+                        href={item.href}
+                        target={'external' in item ? "_blank" : undefined}
+                        rel={'external' in item ? "noopener noreferrer" : undefined}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span className="flex h-8 w-8 items-center justify-center rounded-md border bg-background text-lg">
+                          {item.icon}
+                        </span>
+                        <div>
+                          <div className="font-medium">
+                            {item.title}
+                            {('external' in item) && (
+                              <ExternalLink className="inline-block h-3 w-3 ml-1" />
+                            )}
+                          </div>
+                          <p className="text-xs text-muted-foreground">
+                            {item.description}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
+            ))}
           </nav>
         </div>
       )}
     </header>
-  )
+  );
 }
