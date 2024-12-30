@@ -80,7 +80,7 @@ export default function CarbonDataFlowLandingComponent() {
   }, [containerWidth, controls])
 
   return (
-    <div className="w-full bg-gray-50 py-12 overflow-hidden">
+    <div className="w-full bg-gray-50 dark:bg-black py-12 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="space-y-4 text-center mb-8">
           <h2 className="text-sm font-medium tracking-wider text-muted-foreground uppercase">

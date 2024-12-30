@@ -13,13 +13,13 @@ import { SharedWaveBackground } from "@/components/shared-wave-background"
 
 export default function CarbonSoftwareLandingComponent() {
   return (
-    <div className="flex flex-col dark:bg-gray-900">
+    <div className="flex flex-col dark:bg-black">
       <main className="flex-1">
         {/* Hero Section */}
         <CarbonHero />
 
         {/* Features and Data Flow sections with shared background */}
-        <div className="relative bg-gray-50 dark:bg-gray-900">
+        <div className="relative bg-gray-50 dark:bg-black">
           <SharedWaveBackground />
           <div className="relative z-10">
             <LandingBlocks />
@@ -28,18 +28,18 @@ export default function CarbonSoftwareLandingComponent() {
         </div>
 
         {/* How It Works Section */}
-        <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gray-50 dark:bg-gray-900">
+        <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gray-50 dark:bg-black">
           <div className="max-w-[1920px] mx-auto">
             <HowItWorksComponent />
           </div>
         </section>
 
         {/* Detailed Software Information */}
-        <section className="relative w-full py-24 lg:py-32 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+        <section className="relative w-full py-24 lg:py-32 bg-gray-50 dark:bg-black overflow-hidden">
           <div className="max-w-[1920px] mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-16 animate-fade-in-up dark:text-white">Carbon Infinity Platform</h2>
             <Tabs defaultValue="dashboard" className="w-full max-w-4xl mx-auto">
-              <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-100 dark:bg-gray-800">
+              <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-100 dark:bg-black">
                 <TabsTrigger value="dashboard" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Dashboard</TabsTrigger>
                 <TabsTrigger value="reporting" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Reporting</TabsTrigger>
                 <TabsTrigger value="integration" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Integration</TabsTrigger>
@@ -94,7 +94,7 @@ export default function CarbonSoftwareLandingComponent() {
         </section>
 
         {/* Call to Action */}
-        <section className="relative w-full py-24 lg:py-32 bg-green-100 dark:bg-green-900 overflow-hidden">
+        <section className="relative w-full py-24 lg:py-32 bg-green-100 dark:bg-green-950 overflow-hidden">
           <div className="max-w-[1920px] mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in-up">Ready to Transform Your Carbon Management?</h2>
@@ -108,7 +108,7 @@ export default function CarbonSoftwareLandingComponent() {
         </section>
       </main>
 
-      <footer className="w-full bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 py-12 border-t border-gray-100 dark:border-gray-800">
+      <footer className="w-full bg-white dark:bg-black text-gray-800 dark:text-gray-200 py-12 border-t border-gray-100 dark:border-gray-800">
         <div className="max-w-[1920px] mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>

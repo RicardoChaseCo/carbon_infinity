@@ -37,37 +37,19 @@ const products = [
 
 const developers = [
   {
-    title: "Overview",
-    description: "Learn about our platform capabilities and features",
-    href: "/developers",
-    icon: "📚",
-  },
-  {
     title: "Documentation",
     description: "Detailed API references and integration guides",
     href: "/developers/docs",
-    icon: "📖",
-  },
-  {
-    title: "Developer Portal",
-    description: "Access tools, SDKs, and developer resources",
-    href: "/developers/developer",
     icon: "🛠️",
   },
 ];
 
 const resources = [
   {
-    title: "About Us",
-    description: "Our mission and commitment to sustainability",
-    href: "/resources/about",
+    title: "Careers",
+    description: "Join us for career opportunities",
+    href: "/resources/careers",
     icon: "🌱",
-  },
-  {
-    title: "Our Vision",
-    description: "The future of carbon monitoring and analysis",
-    href: "/resources/vision",
-    icon: "🔭",
   },
   {
     title: "Meet the Team",
@@ -130,7 +112,7 @@ export function SharedHeader() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background/70 backdrop-blur-md border-b border-border z-[60]">
+    <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background/100 backdrop-blur-md border-b border-border z-[60]">
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link className="flex items-center space-x-2" href="/">
@@ -144,7 +126,9 @@ export function SharedHeader() {
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList className="relative space-x-6">
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background/50 backdrop-blur-sm rounded-lg">
+                Products
+              </NavigationMenuTrigger>
               <NavigationMenuContent className="absolute left-0">
                 <div className="grid gap-4 p-6 w-[400px]">
                   {products.map((product) => (
@@ -176,7 +160,9 @@ export function SharedHeader() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Research</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background/50 backdrop-blur-sm rounded-lg">
+                Research
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="grid gap-4 p-6 w-[400px]">
                   {research.map((item) => (
@@ -203,7 +189,9 @@ export function SharedHeader() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Developers</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground bg-background/50 backdrop-blur-sm rounded-lg">
+                Developers
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="grid gap-4 p-6 w-[400px]">
                   {developers.map((item) => (
@@ -230,7 +218,9 @@ export function SharedHeader() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background/50 backdrop-blur-md rounded-lg">
+                Resources
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="grid gap-4 p-6 w-[400px]">
                   {resources.map((item) => (

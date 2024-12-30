@@ -9,7 +9,7 @@ import { FlowChart } from '@/components/flow-chart'
 
 export default function Page() {
   return (
-    <div className="min-h-screen w-full bg-white dark:bg-black text-gray-900 dark:text-white">
+    <div className="min-h-screen pt-14 w-full bg-white dark:bg-black text-gray-900 dark:text-white">
       {/* Hero Section - Updated */}
       <section className="py-12 lg:py-20">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
@@ -27,7 +27,7 @@ export default function Page() {
                 Harness the power of satellite clusters and edge computing for instant energy market insights and trading opportunities.
               </p>
               <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex">
-                <Button className="w-full sm:w-auto bg-green-100 hover:bg-green-200 text-green-800 dark:bg-green-800 dark:hover:bg-green-700 dark:text-green-100">
+                <Button className="w-full sm:w-auto bg-green-100 hover:bg-green-200 text-green-800 dark:bg-black dark:hover:bg-black dark:text-green-100">
                   Explore Platform
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

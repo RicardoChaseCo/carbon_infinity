@@ -10,7 +10,7 @@ import Image from "next/image"
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col bg-white dark:bg-black items-center justify-center">
+    <main className="flex min-h-screen pt-14 flex-col bg-white dark:bg-black items-center justify-center">
       {/* Hero Section */}
       <section className="py-12 md:py-20 w-full">
         <div className="container mx-auto px-4 md:px-6">
@@ -28,7 +28,7 @@ export default function Page() {
                 Oversee global commodity flows and make data-driven decisions with our comprehensive dashboard
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="w-full sm:w-auto bg-green-100 hover:bg-green-200 text-green-800 dark:bg-green-800 dark:hover:bg-green-700 dark:text-green-100">
+                <Button className="w-full sm:w-auto bg-green-100 hover:bg-green-200 text-green-800 dark:bg-bg-black dark:hover:bg-black dark:text-green-100">
                   Explore Platform
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

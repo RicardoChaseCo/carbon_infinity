@@ -78,7 +78,7 @@ const teamMembers: TeamMember[] = [
     name: "Xingnan Jiang",
     role: "Member of Technical Staff",
     image: "/xingnanjiang.png",
-    bio: "Mr. Jiang holds a Master's degree in Computer Science from Johns Hopkins University. Previously, he was a software engineer at Discover, Baidu and NVIDIA. He primarily focuses on the development of our web apps and backend services.",
+    bio: "Xingnan Jiang holds a M.S. in Computer Science Degree from Johns Hopkins University. Previously, he was a Software Engineer at NVIDIA, Baidu and Siemens. He is a full stack engineer with a passion for building scalable and efficient systems.",
     linkedin: "https://www.linkedin.com/in/xingnan/",
     location: "Shanghai, China"
   },
@@ -115,7 +115,7 @@ export default function TeamPage() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-50 dark:from-emerald-900/40 dark:to-gray-900 text-gray-900 dark:text-gray-100 relative">
+    <div className="min-h-screen pt-14 bg-gradient-to-b from-gray-50 to-gray-50 dark:from-black dark:to-black text-gray-900 dark:text-gray-100 relative">
       <GridBackground />
       <div className="container mx-auto px-4 py-16 relative">
         <div className="text-center mb-16">
@@ -153,7 +153,7 @@ export default function TeamPage() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="p-4 bg-emerald-900 text-white dark:bg-emerald-700">
+                  <div className="p-4 bg-emerald-900 text-white dark:bg-gray-900">
                     <h3 className="font-semibold">{member.name}</h3>
                     <p className="text-emerald-100">{member.role}</p>
                     <div className="flex items-center mt-2 text-emerald-200">
@@ -185,7 +185,7 @@ export default function TeamPage() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="p-4 bg-emerald-800 text-white dark:bg-emerald-700">
+                  <div className="p-4 bg-emerald-800 text-white dark:bg-gray-900">
                     <h3 className="font-semibold">{advisor.name}</h3>
                     <p className="text-emerald-100">{advisor.role}</p>
                     <div className="flex items-center mt-2 text-emerald-200">

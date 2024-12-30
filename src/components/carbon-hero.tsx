@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Image from "next/image";
@@ -42,23 +42,24 @@ function WaveBackground() {
 }
 
 export default function CarbonHero() {
-  const companies = [
-    { image: "/placeholder.svg", initials: "GE" },
-    { image: "/placeholder.svg", initials: "SP" },
-    { image: "/placeholder.svg", initials: "BP" },
-    { image: "/placeholder.svg", initials: "SH" },
-    { image: "/placeholder.svg", initials: "TE" },
-  ];
+  // const companies = [
+  //   { image: "/placeholder.svg", initials: "GE" },
+  //   { image: "/placeholder.svg", initials: "SP" },
+  //   { image: "/placeholder.svg", initials: "BP" },
+  //   { image: "/placeholder.svg", initials: "SH" },
+  //   { image: "/placeholder.svg", initials: "TE" },
+  // ];
   const backers = [
     { name: "Harvard", logo: "/harvard.png" },
-    { name: "Tsinghua", logo: "/tsinghua.png" },
-    { name: "YC", logo: "/yc.png" },
+    { name: "Tsinghua", logo: "/tsinghua2.png" },
+    { name: "S&P Global", logo: "/sp500.jpg" },
+    { name: "Wells Fargo", logo: "/wf.png" },
   ];
 
   return (
     <div className="relative min-h-[calc(100vh-56px)] py-12 sm:py-20 md:py-32">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-50 to-green-100 dark:from-green-950 dark:to-gray-900">
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-50 to-green-100 dark:from-black dark:to-black">
         <WaveBackground />
       </div>
 
@@ -68,9 +69,9 @@ export default function CarbonHero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 bg-white/70 dark:bg-green-900/70 backdrop-blur-lg rounded-full px-4 py-1 text-sm mb-8"
+          className="inline-flex items-center gap-2 bg-white/70 dark:bg-black backdrop-blur-lg rounded-full px-4 py-1 text-sm mb-8"
         >
-          <span className="font-medium">EcoAI</span>
+          <span className="font-medium">CarbonInf</span>
           <span className="bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full px-2 py-0.5 text-xs">
             Beta Access
           </span>
@@ -83,7 +84,9 @@ export default function CarbonHero() {
           transition={{ delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-green-900 dark:text-green-50"
         >
-          AI-Powered Carbon Management
+          Building Data Infrastructure for
+          <br />
+          Energy Trading
         </motion.h1>
 
         {/* Subtitle */}
@@ -93,8 +96,7 @@ export default function CarbonHero() {
           transition={{ delay: 0.3 }}
           className="text-green-700 dark:text-green-200 text-lg mb-12"
         >
-          Harness the power of artificial intelligence to revolutionize your
-          organization's approach to carbon reduction and sustainability.
+          Empowering quant trading firms with reliable, scalable, and insightful data solutions.
         </motion.p>
 
         {/* Email Form */}
@@ -102,7 +104,7 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-white/70 dark:bg-green-900/70 backdrop-blur-lg rounded-2xl p-3 mb-8"
+          className="bg-white/70 dark:bg-gray-900 backdrop-blur-lg rounded-2xl p-3 mb-8"
         >
           <form className="flex flex-col sm:flex-row gap-2">
             <Input
@@ -120,7 +122,7 @@ export default function CarbonHero() {
         </motion.div>
 
         {/* Companies */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
@@ -143,7 +145,7 @@ export default function CarbonHero() {
             Join <span className="font-semibold">500+</span> companies already
             reducing their carbon footprint with EcoAI.
           </p>
-        </motion.div>
+        </motion.div> */}
 
         {/* Backers Section */}
         <motion.div

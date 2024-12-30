@@ -32,8 +32,8 @@ const itemVariants = {
 export default function ProductIntroduction() {
   return (
     <div className={cn(
-      "min-h-screen font-sans antialiased",
-      "bg-background text-foreground"
+      "min-h-screen pt-14 font-sans antialiased",
+      "bg-background dark:bg-black text-foreground"
     )}>
       <motion.div
         className="container px-4 py-12 mx-auto space-y-24"
