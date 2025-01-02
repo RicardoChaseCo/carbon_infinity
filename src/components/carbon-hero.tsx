@@ -66,7 +66,7 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-gray-900 dark:text-gray-100 text-lg sm:text-xl mb-12 max-w-3xl mx-auto"
+          className="text-green-700 dark:text-gray-100 text-lg sm:text-xl mb-12 max-w-3xl mx-auto"
         >
           Empowering quant trading firms with reliable, scalable, and insightful data solutions.
         </motion.p>
@@ -99,9 +99,9 @@ export default function CarbonHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Card className="w-full max-w-2xl mx-auto bg-white/30 dark:bg-gray-800/30 backdrop-blur-md border-none">
+          <Card className="w-full max-w-2xl mx-auto bg-gray-50/40 dark:bg-gray-800/30 border-none">
             <CardHeader className="text-center py-2 sm:py-6">
-              <CardTitle className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-200">
+              <CardTitle className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-gray-200">
                 Backed by Industry Leaders
               </CardTitle>
             </CardHeader>
@@ -129,7 +129,7 @@ export default function CarbonHero() {
                         className="p-1.5 sm:p-2"
                       />
                     </div>
-                    <span className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-400">
+                    <span className="text-xs sm:text-sm font-medium text-gray-200 dark:text-gray-400">
                       {backer.name}
                     </span>
                   </motion.div>
