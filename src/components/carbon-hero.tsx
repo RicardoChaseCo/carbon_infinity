@@ -2,53 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
-function WaveBackground() {
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      <svg
-        className="absolute w-full h-full opacity-20 dark:opacity-10"
-        viewBox="0 0 1000 1000"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="rgb(34, 197, 94)" />
-            <stop offset="100%" stopColor="rgb(16, 185, 129)" />
-          </linearGradient>
-        </defs>
-        {Array.from({ length: 8 }).map((_, i) => (
-          <path
-            key={i}
-            d={`M ${-200 + i * 50} ${800 - i * 50} C ${400 + i * 50} ${
-              600 - i * 50
-            }, ${600 + i * 50} ${400 - i * 50}, ${1200 + i * 50} ${
-              200 - i * 50
-            }`}
-            fill="none"
-            stroke="url(#gradient)"
-            strokeWidth="1"
-            className="animate-wave"
-            style={{ animationDelay: `${i * 0.2}s` }}
-          />
-        ))}
-      </svg>
-    </div>
-  );
-}
-
 export default function CarbonHero() {
-  // const companies = [
-  //   { image: "/placeholder.svg", initials: "GE" },
-  //   { image: "/placeholder.svg", initials: "SP" },
-  //   { image: "/placeholder.svg", initials: "BP" },
-  //   { image: "/placeholder.svg", initials: "SH" },
-  //   { image: "/placeholder.svg", initials: "TE" },
-  // ];
+  const { scrollY } = useScroll();
+  const opacity = useTransform(scrollY, [0, 800], [1, 0]);
+  const y = useTransform(scrollY, [0, 800], [0, -200]);
+
   const backers = [
     { name: "Harvard", logo: "/harvard.png" },
     { name: "Tsinghua", logo: "/tsinghua2.png" },
@@ -57,22 +19,34 @@ export default function CarbonHero() {
   ];
 
   return (
-    <div className="relative min-h-[calc(100vh-56px)] py-12 sm:py-20 md:py-32">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-50 to-green-100 dark:from-black dark:to-black">
-        <WaveBackground />
-      </div>
+    <motion.div 
+      style={{ opacity, y }}
+      className="relative pt-14 min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800"
+    >
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-80"
+      >
+        <source src="/238542_medium.mp4" type="video/mp4" />
+        <source src="/238542_medium.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
 
       {/* Hero Content */}
-      <main className="relative max-w-2xl mx-auto px-4 pt-8 sm:pt-12 pb-16 text-center">
+      <main className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 bg-white/70 dark:bg-black backdrop-blur-lg rounded-full px-4 py-1 text-sm mb-8"
+          className="inline-flex items-center gap-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg rounded-full px-4 py-1 text-sm mb-8 shadow-lg"
         >
-          <span className="font-medium">CarbonInf</span>
-          <span className="bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full px-2 py-0.5 text-xs">
+          <span className="font-medium text-green-600 dark:text-green-400">Carbon Infinity v1.0</span>
+          <span className="bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full px-2 py-0.5 text-xs font-semibold">
             Beta Access
           </span>
         </motion.div>
@@ -82,11 +56,9 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-green-900 dark:text-green-50"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-teal-500 dark:from-green-400 dark:to-teal-300"
         >
-          Building Data Infrastructure for
-          <br />
-          Energy Trading
+          Building Data Infrastructure for Energy Trading
         </motion.h1>
 
         {/* Subtitle */}
@@ -94,7 +66,7 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-green-700 dark:text-green-200 text-lg mb-12"
+          className="text-gray-900 dark:text-gray-100 text-lg sm:text-xl mb-12 max-w-3xl mx-auto"
         >
           Empowering quant trading firms with reliable, scalable, and insightful data solutions.
         </motion.p>
@@ -104,68 +76,41 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-white/70 dark:bg-gray-900 backdrop-blur-lg rounded-2xl p-3 mb-8"
+          className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl p-3 sm:p-4 mb-8 sm:mb-16 shadow-md max-w-2xl mx-auto"
         >
-          <form className="flex flex-col sm:flex-row gap-2">
+          <form className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             <Input
               type="email"
               placeholder="Your work email..."
-              className="bg-transparent border-1 border-green-100 focus-visible:ring-0 text-lg placeholder-green-600/50 dark:placeholder-green-300/50"
+              className="bg-transparent focus-visible:ring-green-500 text-base sm:text-lg placeholder-gray-400 dark:placeholder-gray-500 flex-grow dark:text-white"
             />
             <Button
-              size="lg"
-              className="bg-green-600 text-white hover:bg-green-700 dark:bg-green-500 dark:text-green-950 dark:hover:bg-green-400"
+              size="default"
+              className="bg-gradient-to-r from-green-600 to-teal-500 text-white hover:from-green-700 hover:to-teal-600 dark:from-green-500 dark:to-teal-400 dark:text-green-950 dark:hover:from-green-400 dark:hover:to-teal-300 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Request Beta Access
             </Button>
           </form>
         </motion.div>
 
-        {/* Companies */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="flex flex-col items-center gap-4"
-        >
-          <div className="flex -space-x-2">
-            {companies.map((company, i) => (
-              <Avatar
-                key={i}
-                className="border-2 border-white dark:border-green-900"
-              >
-                <AvatarImage src={company.image} alt="Company" />
-                <AvatarFallback className="bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100">
-                  {company.initials}
-                </AvatarFallback>
-              </Avatar>
-            ))}
-          </div>
-          <p className="text-green-700 dark:text-green-200">
-            Join <span className="font-semibold">500+</span> companies already
-            reducing their carbon footprint with EcoAI.
-          </p>
-        </motion.div> */}
-
         {/* Backers Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="pt-16"
         >
-          <Card className="w-full max-w-3xl mx-auto bg-transparent shadow-none border-none">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-semibold text-green-800 dark:text-gray-200">
-                Backed by
+          <Card className="w-full max-w-2xl mx-auto bg-white/30 dark:bg-gray-800/30 backdrop-blur-md border-none">
+            <CardHeader className="text-center py-2 sm:py-6">
+              <CardTitle className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                Backed by Industry Leaders
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="py-1 sm:py-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="flex flex-wrap justify-center items-center gap-8"
+                className="flex flex-wrap justify-center items-center gap-2 sm:gap-8 md:gap-12"
               >
                 {backers.map((backer, index) => (
                   <motion.div
@@ -173,18 +118,18 @@ export default function CarbonHero() {
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.1 * index, duration: 0.5 }}
-                    className="flex flex-col items-center space-y-2"
+                    className="flex flex-col items-center space-y-1 sm:space-y-2"
                   >
-                    <div className="relative w-16 h-16">
+                    <div className="relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full">
                       <Image
                         src={backer.logo}
                         alt={`${backer.name} logo`}
                         layout="fill"
                         objectFit="contain"
-                        className="p-2"
+                        className="p-1.5 sm:p-2"
                       />
                     </div>
-                    <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                    <span className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-400">
                       {backer.name}
                     </span>
                   </motion.div>
@@ -194,23 +139,7 @@ export default function CarbonHero() {
           </Card>
         </motion.div>
       </main>
-
-      <style jsx global>{`
-        @keyframes wave {
-          0% {
-            transform: translateX(-10px) translateY(10px);
-          }
-          50% {
-            transform: translateX(10px) translateY(-10px);
-          }
-          100% {
-            transform: translateX(-10px) translateY(10px);
-          }
-        }
-        .animate-wave {
-          animation: wave 20s infinite ease-in-out;
-        }
-      `}</style>
-    </div>
+    </motion.div>
   );
 }
+

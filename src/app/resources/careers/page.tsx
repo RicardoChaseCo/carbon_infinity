@@ -27,33 +27,13 @@ type JobPosition = {
 const jobPositions: JobPosition[] = [
   {
     id: "1",
-    title: "Frontend Software Engineer Intern",
-    description: "We're looking for a passionate frontend developer to join our team. You'll be working on cutting-edge web applications using React and Next.js. The ideal candidate should have strong experience with modern JavaScript frameworks and a keen eye for design.",
-    team: "Engineering",
-    location: "Remote in United States",
+    title: "Research Analyst Intern",
+    description: "Position Overview: Conduct comprehensive market research and analysis; Collect, organize, and analyze data from various sources; Prepare research reports and presentations. Required Skills: Proficiency in Excel; Strong research and literature review capabilities; Excellent analytical and writing skills; Attention to details; Good communication skills",
+    team: "Research",
+    location: "Prefer Remote in United States",
     flag: "🇺🇸",
-    email: "xingnanjiang@ashregen.com",
-    materials: ["Resume", "Portfolio", "Cover Letter"]
-  },
-  {
-    id: "2",
-    title: "Data Analyst Intern",
-    description: "Join our finance team..",
-    team: "Engineering",
-    location: "Remote in China",
-    flag: "🇨🇳",
-    email: "zimuzhang@ashregen.com",
-    materials: ["Resume", "GitHub profile"]
-  },
-  {
-    id: "3",
-    title: "Product Manager Intern",
-    description: "Lead product strategy and execution for our core platform. You'll work closely with engineering, design, and business teams.",
-    team: "Product",
-    location: "Remote in United States",
-    flag: "🇺🇸",
-    email: "wanessawang@ashregen.com",
-    materials: ["Resume", "Case Studies"]
+    email: "jialezhou@ashregen.com",
+    materials: ["Resume"]
   },
 ]
 

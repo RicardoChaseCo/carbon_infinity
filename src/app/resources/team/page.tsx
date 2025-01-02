@@ -19,68 +19,73 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Zequn Yang",
+    name: "Ash",
     role: "CEO & Founder",
-    image: "/teammember1.png",
+    image: "/.png",
     bio: "UChicago.",
-    linkedin: "https://linkedin.com",
     location: "Boston, USA"
   },
   {
     name: "Zimu Zhang",
     role: "CFO",
-    image: "/teammember1.png",
-    bio: "University of Chinese Academy of Sciences.",
-    linkedin: "https://linkedin.com",
+    image: "/boyavatar.png",
+    bio: "Zimu Zhang is currently studying in the MBA program at the University of Chinese Academy of Sciences and has 3 years of banking experience. He is also a Chinese Certified Public Accountant",
     location: "Beijing, China"
   },
   {
     name: "Jiale Zhou",
     role: "COO",
-    image: "/teammember2.png",
-    bio: "Uchicago.",
-    linkedin: "https://linkedin.com",
+    image: "/girlavatar.png",
+    bio: "Jiale Zhou holds an M.A. in Computational Social Science (Economics Concentration) from the University of Chicago and a B.B.A. in Applied Economics from The Chinese University of Hong Kong. Previously, she was a research assistant at Booth Business School and CUHK-Shenzhen. She is passionate about leveraging technologies to process and analyze information, understanding how it shapes stakeholders' behaviors, and exploring its real economic consequences.",
     location: "Chicago, USA"
   },
   {
     name: "Vanessa Wang",
     role: "CMO",
-    image: "/teammember2.png",
-    bio: "Uchicago.",
-    linkedin: "https://linkedin.com",
+    image: "/girlavatar.png",
+    bio: "Vanessa Wang is currently pursuing a Master of Public Policy degree at Harvard University. She holds a Bachelor's degree in Communication from the University of Southern California. She has worked in Venture Capital, FA, and startups before, with years of experience and expertise in marketing and business development.",
     location: "Beijing, China"
   },
+]
+
+const engineers: TeamMember[] = [
   {
     name: "Yuxuan Cai",
-    role: "Member of Technical Staff",
-    image: "/teammember1.png",
+    role: "Data Scientist",
+    image: "/.png",
     bio: "Uchicago.",
-    linkedin: "https://linkedin.com",
     location: "Chicago, USA"
   },
   {
     name: "Yu Hui",
-    role: "Member of Technical Staff",
-    image: "/teammember2.png",
+    role: "Data Scientist",
+    image: "/.png",
     bio: "Uchicago.",
-    linkedin: "https://linkedin.com",
     location: "Chicago, USA"
   },
   {
-    name: "Yanzheng Lin",
-    role: "Member of Technical Staff",
-    image: "/teammember1.png",
-    bio: "Fudan.",
-    linkedin: "https://linkedin.com",
+    name: "Simon",
+    role: "Algorithm Engineer",
+    image: "/boyavatar.png",
+    bio: "Simon is an AI tutor of the alumni association of the top 3 universities in China, a former senior algorithm engineer of a Big Tech company, and a cooperative independent developer of the Damo Academy",
     location: "Shanghai, China"
   },
   {
-    name: "Xingnan Jiang",
-    role: "Member of Technical Staff",
-    image: "/xingnanjiang.png",
-    bio: "Xingnan Jiang holds a M.S. in Computer Science Degree from Johns Hopkins University. Previously, he was a Software Engineer at NVIDIA, Baidu and Siemens. He is a full stack engineer with a passion for building scalable and efficient systems.",
-    linkedin: "https://www.linkedin.com/in/xingnan/",
+    name: "Ricardo",
+    role: "Software Engineer",
+    image: "/boyavatar.png",
+    bio: "Xingnan Jiang holds a M.S. in Computer Science Degree from a Top 10 University in the United States. Previously, he was a Software Engineer at several Big Tech companies. He is a full stack engineer with a passion for building scalable and efficient systems.",
     location: "Shanghai, China"
+  }
+]
+
+const researchers: TeamMember[] = [
+  {
+    name: "Xiaokang Fu",
+    role: "Researcher",
+    image: "/boyavatar.png",
+    bio: "Xiaokang Fu is a postdoctoral fellow at Harvard University. He was a postdoctoral researcher in State Key Laboratory of Information Engineering in Surveying, Mapping and Remote Sensing, Wuhan University, and a Visiting Fellow at the CGA. His research interests include Geostatistics and Geoinformatics (GIS), Urban Computing, Social Media Data Mining, Emergency Response, and healthy cities. Since 2020, as one of the core members, he has participated in the workflow-based spatial analysis platform project and COVID-19 quick response project initiated by the CGA.",
+    location: "Boston, USA"
   },
 ]
 
@@ -90,7 +95,6 @@ const advisors: TeamMember[] = [
     role: "Professor, Tsinghua",
     image: "/zhuliu.png",
     bio: "Professor of Environmental Science at Tsinghua University. 20+ years research experience in climate change.",
-    linkedin: "https://linkedin.com",
     location: "Beijing, China"
   },
   {
@@ -98,7 +102,6 @@ const advisors: TeamMember[] = [
     role: "MD, Wells Fargo",
     image: "/char.png",
     bio: "She is a seasoned executive with over 20 years of experience in the financial services industry, including roles at Wells Fargo and Bank of America.",
-    linkedin: "https://linkedin.com",
     location: "New York, USA"
   },
   {
@@ -106,7 +109,6 @@ const advisors: TeamMember[] = [
     role: "SVP, S&P Global",
     image: "/jamey.png",
     bio: "James Rosenfield is Senior Vice President, S&P Global. He is Founder and Co-Chairman of CERAWeek, whose evolution he has overseen for over four decades. He is Co-Founder with Daniel Yergin of Cambridge Energy Research Associates (CERA) and led its strategy and growth. CERA was acquired in 2004 by IHS and subsequently S&P Global..",
-    linkedin: "https://linkedin.com",
     location: "New York, USA"
   },
 ]
@@ -136,9 +138,74 @@ export default function TeamPage() {
         </div>
 
         <section className="mb-20">
-          <h2 className="text-2xl font-semibold mb-8">Our Global Team</h2>
+          <h2 className="text-2xl font-semibold mb-8">Our Management Team</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
             {teamMembers.map((member) => (
+              <Card 
+                key={member.name} 
+                className="overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer dark:bg-emerald-800 w-full"
+                onClick={() => setSelectedMember(member)}
+              >
+                <CardContent className="p-0">
+                  <div className="aspect-square relative">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-4 bg-emerald-900 text-white dark:bg-gray-900">
+                    <h3 className="font-semibold">{member.name}</h3>
+                    <p className="text-emerald-100">{member.role}</p>
+                    <div className="flex items-center mt-2 text-emerald-200">
+                      <MapPin size={16} className="mr-1" />
+                      <span className="text-sm">{member.location}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-20">
+          <h2 className="text-2xl font-semibold mb-8">Our Engineering Team</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
+            {engineers.map((member) => (
+              <Card 
+                key={member.name} 
+                className="overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer dark:bg-emerald-800 w-full"
+                onClick={() => setSelectedMember(member)}
+              >
+                <CardContent className="p-0">
+                  <div className="aspect-square relative">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-4 bg-emerald-900 text-white dark:bg-gray-900">
+                    <h3 className="font-semibold">{member.name}</h3>
+                    <p className="text-emerald-100">{member.role}</p>
+                    <div className="flex items-center mt-2 text-emerald-200">
+                      <MapPin size={16} className="mr-1" />
+                      <span className="text-sm">{member.location}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+
+        <section className="mb-20">
+          <h2 className="text-2xl font-semibold mb-8">Our Research Team</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
+            {researchers.map((member) => (
               <Card 
                 key={member.name} 
                 className="overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer dark:bg-emerald-800 w-full"
@@ -215,16 +282,6 @@ export default function TeamPage() {
             </Avatar>
             <div>
               <p className="text-sm dark:text-gray-300">{selectedMember?.bio}</p>
-              {selectedMember?.linkedin && (
-                <a 
-                  href={selectedMember.linkedin} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-sm text-emerald-600 dark:text-emerald-400 hover:underline mt-2 inline-block"
-                >
-                  LinkedIn Profile
-                </a>
-              )}
             </div>
           </div>
         </DialogContent>

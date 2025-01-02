@@ -13,7 +13,7 @@ import { SharedWaveBackground } from "@/components/shared-wave-background"
 
 export default function CarbonSoftwareLandingComponent() {
   return (
-    <div className="flex flex-col dark:bg-black">
+    <div className="flex flex-col bg-gray-50 dark:bg-black">
       <main className="flex-1">
         {/* Hero Section */}
         <CarbonHero />

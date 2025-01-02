@@ -9,25 +9,41 @@ import { FlowChart } from '@/components/flow-chart'
 
 export default function Page() {
   return (
-    <div className="min-h-screen pt-14 w-full bg-white dark:bg-black text-gray-900 dark:text-white">
-      {/* Hero Section - Updated */}
-      <section className="py-12 lg:py-20">
-        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+    <div className="min-h-screen pt-14 w-full bg-gray-50 dark:bg-black text-gray-900 dark:text-white">
+
+      <section className="py-12 md:py-20 w-full relative">
+        {/* Add video background container */}
+        <div className="absolute top-0 left-0 w-full h-[94%] overflow-hidden z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            className="object-cover w-full h-full opacity-100 dark:opacity-80"
+          >
+            <source src="/83628-585600443.mp4" type="video/mp4" />
+            <source src="/83628-585600443.webm" type="video/webm" />
+          </video>
+          {/* Optional overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        {/* Update container to have relative positioning and text colors */}
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-16 xl:gap-20">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="flex flex-col justify-center space-y-4"
             >
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl xl:text-6xl/none">
-                Real-Time Energy Trading Intelligence
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
+                Satellite Edge Computing for Energy Trading
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400">
+              <p className="max-w-[600px] text-base md:text-xl text-gray-200">
                 Harness the power of satellite clusters and edge computing for instant energy market insights and trading opportunities.
               </p>
-              <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex">
-                <Button className="w-full sm:w-auto bg-green-100 hover:bg-green-200 text-green-800 dark:bg-black dark:hover:bg-black dark:text-green-100">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button className="w-full sm:w-auto bg-green-100 hover:bg-green-200 text-green-800 dark:bg-bg-black dark:hover:bg-black dark:text-green-100">
                   Explore Platform
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -37,11 +53,11 @@ export default function Page() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative mt-8 lg:mt-0"
+              className="relative lg:block pl-0 md:pl-16 mt-8 lg:mt-0"
             >
               <Image
                 src="/satellite.jpg"
-                alt="Satellite Cluster Energy Data Visualization"
+                alt="cargo ship"
                 width={600}
                 height={400}
                 className="rounded-lg border border-gray-200 dark:border-gray-800 w-full"
@@ -52,7 +68,7 @@ export default function Page() {
       </section>
 
       {/* Project Overview Section */}
-      <section className="py-12 md:py-24 bg-gray-50 dark:bg-gray-900">
+      <section className="py-12 md:py-24 bg-gray-50 dark:bg-black relative z-10">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <div className="mx-auto max-w-[800px] text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">

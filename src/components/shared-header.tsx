@@ -112,12 +112,12 @@ export function SharedHeader() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background/100 backdrop-blur-md border-b border-border z-[60]">
+    <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background border-b border-border z-[60]">
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link className="flex items-center space-x-2" href="/">
           <Leaf className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
-          <span className="text-xl font-bold text-foreground">
+          <span className="text-md font-bold text-foreground">
             Carbon Infinity
           </span>
         </Link>
@@ -126,7 +126,7 @@ export function SharedHeader() {
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList className="relative space-x-6">
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background/50 backdrop-blur-sm rounded-lg">
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background rounded-lg">
                 Products
               </NavigationMenuTrigger>
               <NavigationMenuContent className="absolute left-0">
@@ -160,7 +160,7 @@ export function SharedHeader() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background/50 backdrop-blur-sm rounded-lg">
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background rounded-lg">
                 Research
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -189,7 +189,7 @@ export function SharedHeader() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground bg-background/50 backdrop-blur-sm rounded-lg">
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground bg-background rounded-lg">
                 Developers
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -218,7 +218,7 @@ export function SharedHeader() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background/50 backdrop-blur-md rounded-lg">
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background rounded-lg">
                 Resources
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -250,18 +250,6 @@ export function SharedHeader() {
 
         {/* Right side buttons */}
         <div className="flex items-center space-x-6">
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm" asChild>
-              <Link href="/signin">Sign In</Link>
-            </Button>
-            <Button
-              size="sm"
-              className="bg-green-600 text-white hover:bg-green-700"
-              asChild
-            >
-              <Link href="/signup">Sign Up</Link>
-            </Button>
-          </div>
           <ThemeToggle />
           <Button
             variant="ghost"
@@ -282,19 +270,6 @@ export function SharedHeader() {
       {mobileMenuOpen && (
         <div className="absolute top-14 left-0 right-0 bg-background border-b border-border shadow-lg md:hidden">
           <nav className="flex flex-col p-4">
-            {/* Sign In/Up Section */}
-            <div className="flex flex-col gap-2 p-4 border-b border-border">
-              <Button variant="ghost" size="sm" asChild className="justify-center">
-                <Link href="/signin">Sign In</Link>
-              </Button>
-              <Button
-                size="sm"
-                className="bg-green-600 text-white hover:bg-green-700 justify-center"
-                asChild
-              >
-                <Link href="/signup">Sign Up</Link>
-              </Button>
-            </div>
 
             {/* Dynamic Sections */}
             {sections.map((section) => (

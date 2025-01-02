@@ -10,10 +10,26 @@ import Image from "next/image"
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen pt-14 flex-col bg-white dark:bg-black items-center justify-center">
+    <main className="flex min-h-screen pt-14 flex-col bg-gray-50 dark:bg-black items-center justify-center">
       {/* Hero Section */}
-      <section className="py-12 md:py-20 w-full">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="py-12 md:py-20 w-full relative">
+        {/* Add video background container */}
+        <div className="absolute top-0 left-0 w-full h-[99%] overflow-hidden z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            className="object-cover w-full h-full opacity-100 dark:opacity-80"
+          >
+            <source src="/23544-335833111_medium.mp4" type="video/mp4" />
+            <source src="/23544-335833111_medium.webm" type="video/webm" />
+          </video>
+          {/* Optional overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        {/* Update container to have relative positioning and text colors */}
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-16 xl:gap-20">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -21,10 +37,10 @@ export default function Page() {
               transition={{ duration: 0.5 }}
               className="flex flex-col justify-center space-y-4"
             >
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
                 Global Decision System for Commodity Trading
               </h1>
-              <p className="max-w-[600px] text-base md:text-xl text-gray-600 dark:text-gray-400">
+              <p className="max-w-[600px] text-base md:text-xl text-gray-200">
                 Oversee global commodity flows and make data-driven decisions with our comprehensive dashboard
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
