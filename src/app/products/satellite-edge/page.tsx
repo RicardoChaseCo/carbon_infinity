@@ -6,27 +6,42 @@ import { ArrowRight, Satellite, Database, Brain, BarChart3, Globe2, Building2, W
 import { Button } from '@/components/ui/button'
 import { FeatureCard } from '@/components/feature-card'
 import { FlowChart } from '@/components/flow-chart'
+import { useState, useEffect } from 'react';
 
 export default function Page() {
-  return (
-    <div className="min-h-screen pt-14 w-full bg-gray-50 dark:bg-black text-gray-900 dark:text-white">
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
-      <section className="py-12 md:py-20 w-full relative">
-        {/* Add video background container */}
-        <div className="absolute top-0 left-0 w-full h-[94%] overflow-hidden z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            className="object-cover w-full h-full opacity-100 dark:opacity-80"
-          >
-            <source src="/83628-585600443.mp4" type="video/mp4" />
-            <source src="/83628-585600443.webm" type="video/webm" />
-          </video>
-          {/* Optional overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/30" />
+  return (
+    <div className="min-h-screen pt-14 w-full bg-white dark:bg-black text-gray-900 dark:text-white">
+      {/* Video Background with Loading State */}
+      <div className="absolute top-0 left-0 w-full h-[60vh] overflow-hidden z-0">
+        {/* Gradient Loading Background */}
+        <div 
+          className={`absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 transition-opacity duration-1000 ease-in-out ${
+            isVideoLoaded ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full border-4 border-green-400 border-t-transparent animate-spin" />
+          </div>
         </div>
 
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          onLoadedData={() => setIsVideoLoaded(true)}
+          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+            isVideoLoaded ? 'opacity-30' : 'opacity-0'
+          }`}
+        >
+          <source src="/your-video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-black" />
+      </div>
+
+      <section className="py-12 md:py-20 w-full relative">
         {/* Update container to have relative positioning and text colors */}
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-16 xl:gap-20">
