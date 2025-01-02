@@ -6,7 +6,7 @@ import { ArrowRight, Satellite, Database, Brain, BarChart3, Globe2, Building2, W
 import { Button } from '@/components/ui/button'
 import { FeatureCard } from '@/components/feature-card'
 import { FlowChart } from '@/components/flow-chart'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Page() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
