@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion"
-import { ArrowRight, Database, GitFork, LineChart, Zap, Cloud, Cpu, Globe } from 'lucide-react'
+import { ArrowRight, Database, LineChart } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import Image from 'next/image'
 
