@@ -27,7 +27,24 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 }
 }
 
-// ... (previous imports and animations remain unchanged)
+const images = [
+  {
+    src: "/ghana1.png",
+    alt: "Satellite imagery analysis"
+  },
+  {
+    src: "/ghana2.png",
+    alt: "Activity monitoring dashboard"
+  },
+  {
+    src: "/ghana3.png",
+    alt: "Environmental impact assessment"
+  },
+  {
+    src: "/ghana4.png",
+    alt: "Real-time detection map"
+  }
+];
 
 export default function ProductIntroduction() {
   return (
@@ -64,9 +81,13 @@ export default function ProductIntroduction() {
             </div>
           </div>
           <div className="relative h-[400px] rounded-lg overflow-hidden bg-muted">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Globe className="h-40 w-40 text-muted-foreground animate-pulse" />
-            </div>
+            <Image
+              src="/mining-activity.png"
+              alt="Mining detection system visualization"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
         </motion.section>
 
@@ -117,58 +138,48 @@ export default function ProductIntroduction() {
         {/* Image Gallery Section */}
         <motion.section variants={itemVariants} className="space-y-12">
           <h2 className="text-3xl font-bold text-center">Monitoring in Action</h2>
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {[1, 2, 3, 4].map((index) => (
-              <div key={index} className="aspect-square relative rounded-lg overflow-hidden bg-muted">
-                  <Image
-                    src="/graced_dashboard.png"
-                    width={1000}
-                    height={300}
-                    alt="Carbon Infinity Dashboard"
-                    className="rounded-lg shadow-md"
-                  />
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+            {images.map((image, index) => (
+              <div key={index} className="aspect-square relative rounded-lg overflow-hidden bg-muted w-full max-w-[300px]">
+                <Image
+                  src={image.src}
+                  width={1000}
+                  height={1000}
+                  alt={image.alt}
+                  className="rounded-lg shadow-md object-cover"
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                />
                 <div className="absolute inset-0 bg-foreground/5 hover:bg-foreground/10 transition-colors duration-300"></div>
               </div>
             ))}
           </div>
         </motion.section>
 
-        {/* How It Works Section */}
+
+        {/* Two Images Section */}
         <motion.section variants={itemVariants} className="space-y-12">
           <h2 className="text-3xl font-bold text-center">How It Works</h2>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                  <Zap className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Data Collection</h3>
-                  <p className="text-muted-foreground">Gather multi-source data including satellite imagery and on-ground sensors</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                  <Cloud className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Cloud Processing</h3>
-                  <p className="text-muted-foreground">Utilize AWS services for scalable and efficient data processing</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                  <Cpu className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">AI Analysis</h3>
-                  <p className="text-muted-foreground">Apply machine learning models for accurate activity detection and prediction</p>
-                </div>
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
+              <Image
+                src="/arch1.jpg"
+                alt="Before mining activities"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                <h3 className="text-xl font-semibold text-white">Research Framework Part 1</h3>
               </div>
             </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden bg-muted">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <GitFork className="h-40 w-40 text-primary animate-pulse" />
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
+              <Image
+                src="/arch2.jpg"
+                alt="After mining activities"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                <h3 className="text-xl font-semibold text-white">Research Framework Part 2</h3>
               </div>
             </div>
           </div>

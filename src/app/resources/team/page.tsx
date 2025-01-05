@@ -21,8 +21,8 @@ const teamMembers: TeamMember[] = [
   {
     name: "Ash",
     role: "CEO & Founder",
-    image: "/.png",
-    bio: "UChicago.",
+    image: "/boyavatar.png",
+    bio: "Ash graduated from the University of Chicago and is currently a serial entrepreneur. He has been active in the Venture Capital industry for half a decade.",
     location: "Boston, USA"
   },
   {
@@ -52,15 +52,15 @@ const engineers: TeamMember[] = [
   {
     name: "Yuxuan Cai",
     role: "Data Scientist",
-    image: "/.png",
-    bio: "Uchicago.",
+    image: "/boyavatar.png",
+    bio: "PhD Candidate at University of Chicago",
     location: "Chicago, USA"
   },
   {
     name: "Yu Hui",
     role: "Data Scientist",
-    image: "/.png",
-    bio: "Uchicago.",
+    image: "/girlavatar.png",
+    bio: "Yu Hui is an MA candidate in Computational Social Science at the University of Chicago with a strong foundation in applied economics, data science, and public finance. She has professional experience as a Business Analyst Intern at Deloitte Consulting. Yu is passionate about using data-driven methods to address real-world challenges and improve policy outcomes.",
     location: "Chicago, USA"
   },
   {
@@ -99,7 +99,7 @@ const advisors: TeamMember[] = [
   },
   {
     name: "Charlene Balfour",
-    role: "MD, Wells Fargo",
+    role: "Executive, Wells Fargo",
     image: "/char.png",
     bio: "She is a seasoned executive with over 20 years of experience in the financial services industry, including roles at Wells Fargo and Bank of America.",
     location: "New York, USA"

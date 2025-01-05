@@ -35,10 +35,20 @@ const jobPositions: JobPosition[] = [
     email: "jialezhou@ashregen.com",
     materials: ["Resume"]
   },
+  {
+    id: "2",
+    title: "Research Analyst Intern",
+    description: "Position Overview: Conduct comprehensive market research and analysis; Collect, organize, and analyze data from various sources; Prepare research reports and presentations. Required Skills: Proficiency in Excel or Python/R; Strong research and literature review capabilities; Excellent analytical and writing skills; Attention to details; Good communication skills",
+    team: "Research",
+    location: "Prefer Remote in United States",
+    flag: "🇺🇸",
+    email: "xiaokangfu@ashregen.com",
+    materials: ["Resume"]
+  },
 ]
 
-const teams = ["All Teams", "Engineering", "Product", "Design", "Sales"]
-const locations = ["All Locations", "New York", "London", "Berlin", "Singapore", "Amsterdam", "Remote"]
+const teams = ["All Teams", "Engineering", "Research", "Executive", "Sales"]
+const locations = ["All Locations", "New York", "Boston", "Beijing", "Shanghai (HQ)", "Amsterdam", "Remote"]
 
 export default function CareersPage() {
   const [selectedTeam, setSelectedTeam] = useState("All Teams")

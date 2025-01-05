@@ -5,8 +5,10 @@ import { motion, useAnimation } from "framer-motion"
 import { Database, Brain, Lightbulb, LineChart } from 'lucide-react'
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import { useRouter } from "next/navigation"
 
 export default function HowItWorksComponent() {
+  const router = useRouter()
   const controls = useAnimation()
 
   useEffect(() => {
@@ -23,44 +25,37 @@ export default function HowItWorksComponent() {
   const steps = [
     {
       number: 1,
-      title: "Data Collection",
-      description: "Integrate with your existing systems or use our IoT sensors to collect emissions data.",
+      title: "Satellite Computing",
+      description: "Our satellite edge computing platform collects data from our satellites and provides real-time insights.",
       icon: Database,
       lightGradient: "from-blue-100 via-blue-200 to-blue-300",
       darkGradient: "dark:from-blue-900 dark:via-blue-800 dark:to-blue-700",
       hoverLight: "hover:from-blue-200 hover:via-blue-300 hover:to-blue-400",
-      hoverDark: "dark:hover:from-blue-800 dark:hover:via-blue-700 dark:hover:to-blue-600"
+      hoverDark: "dark:hover:from-blue-800 dark:hover:via-blue-700 dark:hover:to-blue-600",
+      path: "/products/satellite-edge"
     },
     {
       number: 2,
-      title: "Analysis",
-      description: "Our AI algorithms process and analyze your data to provide actionable insights.",
+      title: "Carbon Monitoring",
+      description: "Our carbon monitoring system uses satellite data to monitor carbon emissions and provide real-time insights.",
       icon: Brain,
       lightGradient: "from-yellow-100 via-yellow-200 to-orange-200",
       darkGradient: "dark:from-yellow-900 dark:via-yellow-800 dark:to-orange-800",
       hoverLight: "hover:from-yellow-200 hover:via-yellow-300 hover:to-orange-300",
-      hoverDark: "dark:hover:from-yellow-800 dark:hover:via-yellow-700 dark:hover:to-orange-700"
+      hoverDark: "dark:hover:from-yellow-800 dark:hover:via-yellow-700 dark:hover:to-orange-700",
+      path: "https://www.carbonmonitor-graced.com/index.html"
     },
     {
       number: 3,
-      title: "Strategize",
-      description: "Develop data-driven strategies to reduce emissions and improve efficiency.",
+      title: "Decision System",
+      description: "Our decision system uses satellite data to make decisions about carbon emissions and provide real-time insights.",
       icon: Lightbulb,
       lightGradient: "from-pink-100 via-purple-200 to-indigo-200",
       darkGradient: "dark:from-pink-900 dark:via-purple-800 dark:to-indigo-800",
       hoverLight: "hover:from-pink-200 hover:via-purple-300 hover:to-indigo-300",
-      hoverDark: "dark:hover:from-pink-800 dark:hover:via-purple-700 dark:hover:to-indigo-700"
+      hoverDark: "dark:hover:from-pink-800 dark:hover:via-purple-700 dark:hover:to-indigo-700",
+      path: "/products/decision-system"
     },
-    {
-      number: 4,
-      title: "Implement & Monitor",
-      description: "Put your plans into action and track progress in real-time.",
-      icon: LineChart,
-      lightGradient: "from-teal-100 via-teal-200 to-emerald-200",
-      darkGradient: "dark:from-teal-900 dark:via-teal-800 dark:to-emerald-800",
-      hoverLight: "hover:from-teal-200 hover:via-teal-300 hover:to-emerald-300",
-      hoverDark: "dark:hover:from-teal-800 dark:hover:via-teal-700 dark:hover:to-emerald-700"
-    }
   ]
 
   const containerVariants = {
@@ -127,11 +122,11 @@ export default function HowItWorksComponent() {
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl font-bold text-center mb-12 text-foreground"
         >
-          How Carbon Infinity Works
+          Our Products
         </motion.h2>
         
         <motion.div 
-          className="max-w-6xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-4"
+          className="max-w-6xl mx-auto grid gap-8 md:grid-cols-3 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
@@ -144,9 +139,10 @@ export default function HowItWorksComponent() {
                 variants={itemVariants}
                 whileHover={{ scale: 1.05, zIndex: 1 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => router.push(step.path)}
               >
                 <Card className={cn(
-                  "relative h-[400px] overflow-hidden cursor-pointer",
+                  "relative h-[400px] overflow-hidden cursor-pointer group",
                   "bg-gradient-to-br transition-all duration-500",
                   step.lightGradient,
                   step.darkGradient,
@@ -176,13 +172,11 @@ export default function HowItWorksComponent() {
                       >
                         {step.title}
                       </motion.h3>
-                      <motion.p 
-                        className="text-foreground/80 text-sm"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
+                      <p 
+                        className="text-foreground/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                       >
                         {step.description}
-                      </motion.p>
+                      </p>
                     </div>
                   </div>
                 </Card>

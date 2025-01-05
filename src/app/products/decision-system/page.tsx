@@ -19,7 +19,16 @@ export default function Page() {
             autoPlay
             muted
             loop
+            playsInline
+            preload="auto"
             className="object-cover w-full h-full opacity-100 dark:opacity-80"
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              pointerEvents: 'none'
+            }}
           >
             <source src="/23544-335833111_medium.mp4" type="video/mp4" />
             <source src="/23544-335833111_medium.webm" type="video/webm" />

@@ -35,14 +35,14 @@ const products = [
   },
 ];
 
-const developers = [
-  {
-    title: "Documentation",
-    description: "Detailed API references and integration guides",
-    href: "/developers/docs",
-    icon: "🛠️",
-  },
-];
+// const developers = [
+//   {
+//     title: "Documentation",
+//     description: "Detailed API references and integration guides",
+//     href: "/developers/docs",
+//     icon: "🛠️",
+//   },
+// ];
 
 const resources = [
   {
@@ -73,7 +73,7 @@ export function SharedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  const [developersOpen, setDevelopersOpen] = useState(false);
+  // const [developersOpen, setDevelopersOpen] = useState(false);
   const [researchOpen, setResearchOpen] = useState(false);
 
   const sections = [
@@ -87,11 +87,11 @@ export function SharedHeader() {
       items: research,
       id: "research",
     },
-    {
-      title: "Developers",
-      items: developers,
-      id: "developers",
-    },
+    // {
+    //   title: "Developers",
+    //   items: developers,
+    //   id: "developers",
+    // },
     {
       title: "Resources",
       items: resources,
@@ -188,7 +188,7 @@ export function SharedHeader() {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground bg-background rounded-lg">
                 Developers
               </NavigationMenuTrigger>
@@ -215,7 +215,7 @@ export function SharedHeader() {
                   ))}
                 </div>
               </NavigationMenuContent>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
 
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background rounded-lg">
@@ -281,9 +281,9 @@ export function SharedHeader() {
                       case "products":
                         setProductsOpen(!productsOpen);
                         break;
-                      case "developers":
-                        setDevelopersOpen(!developersOpen);
-                        break;
+                      // case "developers":
+                      //   setDevelopersOpen(!developersOpen);
+                      //   break;
                       case "resources":
                         setResourcesOpen(!resourcesOpen);
                         break;
@@ -297,7 +297,7 @@ export function SharedHeader() {
                   <svg
                     className={`w-4 h-4 transition-transform ${
                       (section.id === "products" && productsOpen) ||
-                      (section.id === "developers" && developersOpen) ||
+                      // (section.id === "developers" && developersOpen) ||
                       (section.id === "resources" && resourcesOpen) ||
                       (section.id === "research" && researchOpen)
                         ? "rotate-180"
@@ -317,7 +317,7 @@ export function SharedHeader() {
                 </button>
 
                 {((section.id === "products" && productsOpen) ||
-                  (section.id === "developers" && developersOpen) ||
+                  // (section.id === "developers" && developersOpen) ||
                   (section.id === "resources" && resourcesOpen) ||
                   (section.id === "research" && researchOpen)) && (
                   <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
