@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
-import { Database, Brain, Lightbulb, LineChart } from 'lucide-react'
+import { Database, Brain, Lightbulb } from 'lucide-react'
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
