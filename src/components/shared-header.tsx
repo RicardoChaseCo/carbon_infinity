@@ -35,15 +35,6 @@ const products = [
   },
 ];
 
-// const developers = [
-//   {
-//     title: "Documentation",
-//     description: "Detailed API references and integration guides",
-//     href: "/developers/docs",
-//     icon: "🛠️",
-//   },
-// ];
-
 const resources = [
   {
     title: "Careers",
@@ -73,7 +64,6 @@ export function SharedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  // const [developersOpen, setDevelopersOpen] = useState(false);
   const [researchOpen, setResearchOpen] = useState(false);
 
   const sections = [
@@ -87,11 +77,6 @@ export function SharedHeader() {
       items: research,
       id: "research",
     },
-    // {
-    //   title: "Developers",
-    //   items: developers,
-    //   id: "developers",
-    // },
     {
       title: "Resources",
       items: resources,
@@ -115,12 +100,14 @@ export function SharedHeader() {
     <header className="fixed top-0 left-0 right-0 h-14 flex items-center bg-background border-b border-border z-[60]">
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex items-center justify-between">
         {/* Logo */}
+        <div className="w-[200px]">
         <Link className="flex items-center space-x-2" href="/">
           <Leaf className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
-          <span className="text-md font-bold text-foreground">
+          <span className="text-l font-bold text-foreground">
             Carbon Infinity
           </span>
         </Link>
+        </div>
 
         {/* Navigation Menu - Centered */}
         <NavigationMenu className="hidden md:flex">
@@ -188,37 +175,8 @@ export function SharedHeader() {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-            {/* <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground bg-background rounded-lg">
-                Developers
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <div className="grid gap-4 p-6 w-[400px]">
-                  {developers.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      className="group grid grid-cols-[40px_1fr] gap-2 rounded-lg p-2 hover:bg-muted"
-                    >
-                      <span className="flex h-10 w-10 items-center justify-center rounded-md border bg-background text-xl">
-                        {item.icon}
-                      </span>
-                      <div>
-                        <div className="text-sm font-medium leading-none group-hover:underline">
-                          {item.title}
-                        </div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          {item.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem> */}
-
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background rounded-lg">
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background/50 backdrop-blur-md rounded-lg">
                 Resources
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -249,7 +207,7 @@ export function SharedHeader() {
         </NavigationMenu>
 
         {/* Right side buttons */}
-        <div className="flex items-center space-x-6">
+        <div className="w-[200px] flex items-center justify-end space-x-6">
           <ThemeToggle />
           <Button
             variant="ghost"
@@ -281,9 +239,6 @@ export function SharedHeader() {
                       case "products":
                         setProductsOpen(!productsOpen);
                         break;
-                      // case "developers":
-                      //   setDevelopersOpen(!developersOpen);
-                      //   break;
                       case "resources":
                         setResourcesOpen(!resourcesOpen);
                         break;
@@ -297,7 +252,6 @@ export function SharedHeader() {
                   <svg
                     className={`w-4 h-4 transition-transform ${
                       (section.id === "products" && productsOpen) ||
-                      // (section.id === "developers" && developersOpen) ||
                       (section.id === "resources" && resourcesOpen) ||
                       (section.id === "research" && researchOpen)
                         ? "rotate-180"
@@ -317,7 +271,6 @@ export function SharedHeader() {
                 </button>
 
                 {((section.id === "products" && productsOpen) ||
-                  // (section.id === "developers" && developersOpen) ||
                   (section.id === "resources" && resourcesOpen) ||
                   (section.id === "research" && researchOpen)) && (
                   <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
