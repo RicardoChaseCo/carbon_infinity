@@ -32,8 +32,8 @@ export default function CarbonHero() {
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-80"
       >
-        <source src="/238542_medium.mp4" type="video/mp4" />
-        <source src="/238542_medium.webm" type="video/webm" />
+        <source src="/52517-469172773.mp4" type="video/mp4" />
+        <source src="/52517-469172773.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
 
@@ -45,8 +45,8 @@ export default function CarbonHero() {
           animate={{ opacity: 1, y: 0 }}
           className="inline-flex items-center gap-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg rounded-full px-4 py-1 text-sm mb-8 shadow-lg"
         >
-          <span className="font-medium text-green-600 dark:text-green-400">Carbon Infinity v1.0</span>
-          <span className="bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full px-2 py-0.5 text-xs font-semibold">
+          <span className="font-medium text-green-800 dark:text-green-400">Carbon Infinity v1.0</span>
+          <span className="bg-green-300 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full px-2 py-0.5 text-xs font-semibold">
             Beta Access
           </span>
         </motion.div>
@@ -56,9 +56,9 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-teal-500 dark:from-green-400 dark:to-teal-300"
+          className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-teal-400 dark:from-green-400 dark:to-teal-300"
         >
-          Building Data Infrastructure for Energy Trading
+          Planet Data Infrastructure
         </motion.h1>
 
         {/* Subtitle */}
@@ -66,9 +66,9 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-green-700 dark:text-gray-100 text-lg sm:text-xl mb-12 max-w-3xl mx-auto"
+          className="text-green-400 dark:text-green-200 text-lg sm:text-xl mb-12 max-w-3xl mx-auto"
         >
-          Empowering quant trading firms with reliable, scalable, and insightful data solutions.
+          Monitoring vital earth activities to expose key earth signals for any use case.
         </motion.p>
 
         {/* Email Form */}
@@ -129,7 +129,7 @@ export default function CarbonHero() {
                         className="p-1.5 sm:p-2"
                       />
                     </div>
-                    <span className="text-xs sm:text-sm font-medium text-gray-200 dark:text-gray-400">
+                    <span className="text-xs sm:text-sm font-medium text-black dark:text-gray-400">
                       {backer.name}
                     </span>
                   </motion.div>
