@@ -42,12 +42,6 @@ const resources = [
     href: "/resources/careers",
     icon: "🌱",
   },
-  {
-    title: "Meet the Team",
-    description: "The experts behind Carbon Infinity",
-    href: "/resources/team",
-    icon: "👥",
-  },
 ];
 
 const research = [
@@ -60,11 +54,27 @@ const research = [
   },
 ];
 
+const about = [
+  {
+    title: "About Us",
+    description: "Learn about our mission and vision",
+    href: "/about",
+    icon: "🎯",
+  },
+  {
+    title: "Meet the Team",
+    description: "The experts behind Carbon Infinity",
+    href: "/about/team",
+    icon: "👥",
+  }
+];
+
 export function SharedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [researchOpen, setResearchOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   const sections = [
     {
@@ -76,6 +86,18 @@ export function SharedHeader() {
       title: "Research",
       items: research,
       id: "research",
+    },
+    {
+      title: "About",
+      items: [
+        {
+          title: "Meet the Team",
+          description: "The experts behind Carbon Infinity",
+          href: "/about/team",
+          icon: "👥",
+        }
+      ],
+      id: "about",
     },
     {
       title: "Resources",
@@ -203,6 +225,35 @@ export function SharedHeader() {
                 </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="text-foreground/70 hover:text-foreground transition-colors bg-background/50 backdrop-blur-md rounded-lg">
+                About
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="grid gap-4 p-6 w-[400px]">
+                  {about.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      className="group grid grid-cols-[40px_1fr] gap-2 rounded-lg p-2 hover:bg-muted"
+                    >
+                      <span className="flex h-10 w-10 items-center justify-center rounded-md border bg-background text-xl">
+                        {item.icon}
+                      </span>
+                      <div>
+                        <div className="text-sm font-medium leading-none group-hover:underline">
+                          {item.title}
+                        </div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -245,6 +296,9 @@ export function SharedHeader() {
                       case "research":
                         setResearchOpen(!researchOpen);
                         break;
+                      case "about":
+                        setAboutOpen(!aboutOpen);
+                        break;
                     }
                   }}
                 >
@@ -272,7 +326,8 @@ export function SharedHeader() {
 
                 {((section.id === "products" && productsOpen) ||
                   (section.id === "resources" && resourcesOpen) ||
-                  (section.id === "research" && researchOpen)) && (
+                  (section.id === "research" && researchOpen) ||
+                  (section.id === "about" && aboutOpen)) && (
                   <div className="ml-4 mt-2 space-y-2 border-l-2 border-green-100">
                     {section.items.map((item) => (
                       <Link

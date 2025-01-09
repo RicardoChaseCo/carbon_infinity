@@ -82,7 +82,7 @@ export default function ProductIntroduction() {
           </div>
           <div className="relative h-[400px] rounded-lg overflow-hidden bg-muted">
             <Image
-              src="/mining-activity.png"
+              src="/miningactivity.png"
               alt="Mining detection system visualization"
               fill
               className="object-cover"
