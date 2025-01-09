@@ -56,7 +56,7 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-teal-400 dark:from-green-400 dark:to-teal-300"
+          className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r text-white dark:from-green-400 dark:to-teal-300"
         >
           Planet Data Infrastructure
         </motion.h1>
@@ -66,7 +66,7 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-green-400 dark:text-green-200 text-lg sm:text-xl mb-12 max-w-3xl mx-auto"
+          className="text-white dark:text-green-200 text-lg sm:text-xl mb-12 max-w-3xl mx-auto"
         >
           Monitoring vital earth activities to expose key earth signals for any use case.
         </motion.p>
@@ -86,7 +86,7 @@ export default function CarbonHero() {
             />
             <Button
               size="default"
-              className="bg-gradient-to-r from-green-600 to-teal-500 text-white hover:from-green-700 hover:to-teal-600 dark:from-green-500 dark:to-teal-400 dark:text-green-950 dark:hover:from-green-400 dark:hover:to-teal-300 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-green-600 to-teal-500 text-black hover:from-green-700 hover:to-teal-600 dark:from-green-500 dark:to-teal-400 dark:text-green-950 dark:hover:from-green-400 dark:hover:to-teal-300 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Request Beta Access
             </Button>

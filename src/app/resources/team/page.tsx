@@ -33,10 +33,10 @@ const teamMembers: TeamMember[] = [
     location: "Beijing, China"
   },
   {
-    name: "Jiale Zhou",
+    name: "Charlotte Zhou",
     role: "COO",
     image: "/girlavatar.png",
-    bio: "Jiale Zhou holds an M.A. in Computational Social Science (Economics Concentration) from the University of Chicago and a B.B.A. in Applied Economics from The Chinese University of Hong Kong. Previously, she was a research assistant at Booth Business School and CUHK-Shenzhen. She is passionate about leveraging technologies to process and analyze information, understanding how it shapes stakeholders' behaviors, and exploring its real economic consequences.",
+    bio: "Charlotte Zhou holds an M.A. in Computational Social Science (Economics) from the University of Chicago and a B.B.A. in Applied Economics from The Chinese University of Hong Kong. With experience spanning government consulting, securities analysis, and research roles at leading institutions including the University of Chicago Booth School of Business, she excels at leveraging technology and analytics to drive organizational transformation and business growth.",
     location: "Chicago, USA"
   },
   {
