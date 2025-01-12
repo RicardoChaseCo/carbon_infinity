@@ -45,7 +45,7 @@ export default function CarbonHero() {
           animate={{ opacity: 1, y: 0 }}
           className="inline-flex items-center gap-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg rounded-full px-4 py-1 text-sm mb-8 shadow-lg"
         >
-          <span className="font-medium text-black dark:text-green-400">Carbon Infinity <span className="font-medium text-green-800 dark:text-green-400">v1.0</span> (Data + AI + Infrastructure)</span>
+          <span className="font-medium text-black dark:text-green-400">Carbon Infinity <span className="font-medium text-black dark:text-green-400">v1.0</span> (Data + AI + Infrastructure)</span>
           <span className="bg-green-300 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full px-2 py-0.5 text-xs font-semibold">
             Beta Access
           </span>
@@ -56,7 +56,7 @@ export default function CarbonHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r text-white dark:from-green-400 dark:to-teal-300"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r text-white dark:from-green-400 dark:to-teal-300"
         >
           Discovering the Value of Underestimated Planetary Data
         </motion.h1>

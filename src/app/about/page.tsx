@@ -9,9 +9,6 @@ export default function AboutPage() {
               AshRegen, the company behind Carbon Infinity
             </h1>
           </div>
-          <div className="text-sm md:text-base text-gray-600 dark:text-gray-300">
-            Shipping planetary data to the world
-          </div>
         </div>
       </header>
 
